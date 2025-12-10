@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Engy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Princess Engy</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
@@ -11,10 +11,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Tajawal', sans-serif;
-  background: linear-gradient(135deg, #ffb2d9, #bc8cff, #7ed8ff);
+  background: linear-gradient(135deg, #ffc1e3, #caa9ff, #a4e4ff);
   background-size: 300% 300%;
-  animation: bgFlow 12s ease infinite;
-  color: white;
+  animation: dreamyBg 12s ease infinite;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -22,56 +21,59 @@ body {
   padding: 30px;
 }
 
-@keyframes bgFlow {
+@keyframes dreamyBg {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* 💗 البوكس الجديد */
 .container {
   width: 90%;
   max-width: 900px;
-  background: rgba(255, 240, 255, 0.25); /* اللون الجديد الناعم */
-  border-radius: 25px;
-  padding: 40px;
-  box-shadow: 0 0 30px rgba(255, 140, 220, 0.35);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  padding: 45px;
+  box-shadow: 0 0 45px rgba(255, 110, 180, 0.4);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255,255,255,0.5);
   position: relative;
 }
 
-
-/* ⭐ تأثير الاسم الجديد: Glow + Soft Wave */
+/* ✨ تأثير الاسم – Glitter Shine */
 .title {
-  font-size: 45px;
+  font-size: 46px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 30px;
-  color: #fff;
-  animation: glow 3s ease-in-out infinite;
+  background: linear-gradient(90deg, #fff, #ff77c4, #d082ff, #fff);
+  background-size: 250%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glitter 4s infinite linear;
   letter-spacing: 2px;
 }
 
-@keyframes glow {
-  0%   { text-shadow: 0 0 8px #ff74cb, 0 0 15px #ff74cb; transform: scale(1); }
-  50%  { text-shadow: 0 0 18px #ff3cac, 0 0 35px #ff3cac; transform: scale(1.03); }
-  100% { text-shadow: 0 0 8px #ff74cb, 0 0 15px #ff74cb; transform: scale(1); }
+@keyframes glitter {
+  0% { background-position: 0%; }
+  100% { background-position: 250%; }
 }
 
-/* ✨ صورة مع فقاعات متطايرة فوقها */
+/* ✨ الصورة + إطار قلوب + فقاعات */
 .avatar-box {
-  width: 190px;
-  height: 190px;
-  margin: 0 auto;
+  width: 210px;
+  height: 210px;
+  margin: 25px auto;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  animation: popIn 1.3s ease forwards;
-  box-shadow: 0 0 25px rgba(255, 168, 220, 0.6);
+  border: 4px solid #ffb5dd;
+  box-shadow: 0 0 35px rgba(255, 130, 200, 0.7);
+  animation: fadePop 1.4s ease both;
 }
 
-@keyframes popIn {
-  0% { opacity: 0; transform: scale(0.3); filter: blur(10px); }
-  100% { opacity: 1; transform: scale(1); filter: blur(0px); }
+@keyframes fadePop {
+  0% { opacity: 0; transform: scale(0.4); filter: blur(8px); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
 }
 
 .avatar-box img {
@@ -80,55 +82,49 @@ body {
   object-fit: cover;
 }
 
-/* 🌸 فقاعات متطايرة فوق الصورة */
-.avatar-box::before,
-.avatar-box::after {
-  content: "";
+/* 🌸 فقاعات وقلوب تطير فوق الصورة */
+.avatar-box::before, .avatar-box::after {
+  content: "❤";
   position: absolute;
-  background: rgba(255,255,255,0.5);
-  border-radius: 50%;
-  animation: bubbles 6s infinite ease-in-out;
+  color: rgba(255, 240, 255, 0.9);
+  font-size: 22px;
+  animation: float 6s infinite ease-in-out;
 }
 
 .avatar-box::before {
-  width: 40px;
-  height: 40px;
-  left: 20%;
+  left: 18%;
   top: 100%;
-  animation-delay: 0s;
 }
 
 .avatar-box::after {
-  width: 25px;
-  height: 25px;
-  left: 60%;
+  left: 70%;
   top: 100%;
-  animation-delay: 1.2s;
+  animation-delay: 1.3s;
 }
 
-@keyframes bubbles {
+@keyframes float {
   0%   { transform: translateY(0) scale(0.7); opacity: 0; }
-  30%  { opacity: 1; }
-  100% { transform: translateY(-240px) scale(1.3); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: translateY(-260px) scale(1.3); opacity: 0; }
 }
 
-/* ✨ وصف بتأثير الكتابة - يبدأ من اليمين */
+/* ✨ وصف بتأثير الكتابة من اليمين */
 .description {
   text-align: center;
-  font-size: 20px;
-  margin: 30px 0 10px;
-  color: #ffeaff;
-  font-weight: 300;
+  font-size: 21px;
+  margin-top: 20px;
+  color: #fff;
   direction: rtl;
+  font-weight: 300;
 }
 
 .typing {
   border-right: 2px solid #fff;
-  white-space: nowrap;
   overflow: hidden;
-  width: 0;
+  white-space: nowrap;
   display: inline-block;
-  animation: typing 5s steps(40) forwards, blink 0.7s infinite;
+  width: 0;
+  animation: typing 5s steps(45) forwards, blink 0.7s infinite;
 }
 
 @keyframes typing {
@@ -141,14 +137,14 @@ body {
   50% { border-color: #fff; }
 }
 
-/* ✨ جزء الفيديوهات */
+/* ✨ صندوق الفيديوهات */
 .videos-box {
-  margin-top: 25px;
-  padding: 20px;
-  background: rgba(255,255,255,0.12);
-  border-radius: 20px;
+  margin-top: 30px;
+  padding: 22px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 22px;
   backdrop-filter: blur(6px);
-  box-shadow: 0 0 20px rgba(255,255,255,0.25);
+  box-shadow: 0 0 25px rgba(255,255,255,0.3);
 }
 
 .videos-scroll {
@@ -166,13 +162,13 @@ body {
   border-radius: 18px;
   overflow: hidden;
   background: #000;
-  box-shadow: 0 0 15px rgba(255,120,200,0.4);
+  box-shadow: 0 0 18px rgba(255,100,200,0.5);
   transition: 0.3s;
 }
 
 .video-card:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 25px rgba(255,80,180,0.6);
+  transform: scale(1.1);
+  box-shadow: 0 0 28px rgba(255,70,180,0.8);
 }
 
 .video-card iframe {
@@ -186,14 +182,14 @@ body {
 
 <div class="container">
 
-  <div class="title">EnGy</div>
+  <div class="title">Engy</div>
 
   <div class="avatar-box">
-    <img src="https://img.alfrsantv.com/img/f176506150966251.png" />
+    <img src="https://img.alfrsantv.com/img/f176506150966251.png">
   </div>
 
   <div class="description">
-    <span class="typing">أحيانًا البساطة أجمل حاجة في البنت… والأجمل إنها تكون هيّ نفسها</span>
+    <span class="typing">البنات مش محتاجة تبذل مجهود… جمالها موجود في أبسط تفاصيلها </span>
   </div>
 
   <div class="videos-box">
