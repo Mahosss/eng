@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Profile Elegant Design</title>
+<title>Profile Cute Design</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
   padding: 0;
   font-family: 'Tajawal', sans-serif;
-  background: linear-gradient(135deg, #0f0f17, #2b2b3d);
+  background: linear-gradient(135deg, #ffb8d6, #a77bff, #6ecbff);
+  background-size: 300% 300%;
+  animation: bgFlow 12s ease infinite;
   color: white;
   display: flex;
   justify-content: center;
@@ -19,54 +22,71 @@ body {
   padding: 30px;
 }
 
+/* خلفية متغيرة */
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .container {
   width: 90%;
   max-width: 900px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.08);
   border-radius: 25px;
   padding: 40px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
+  box-shadow: 0 0 25px rgba(255,255,255,0.25);
+  backdrop-filter: blur(8px);
   position: relative;
   overflow: hidden;
 }
 
-/* ✨ خلفية متحركة */
-.container::before {
+/* فقاعات متطايرة */
+.container::before,
+.container::after {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(0,255,255,0.15), transparent 70%);
-  animation: floatBG 8s infinite linear;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 70%);
+  border-radius: 50%;
+  animation: bubbles 12s infinite linear;
+  opacity: 0.6;
 }
 
-@keyframes floatBG {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.container::after {
+  width: 160px;
+  height: 160px;
+  left: 60%;
+  top: 65%;
+  animation-duration: 14s;
 }
 
-/* ✨ اسم الصفحة المتحرك */
+@keyframes bubbles {
+  0%   { transform: translateY(120px) scale(0.7); }
+  50%  { transform: translateY(-40px) scale(1); }
+  100% { transform: translateY(120px) scale(0.7); }
+}
+
+/* عنوان */
 .title {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 25px;
-  background: linear-gradient(90deg, #fff, #00e0ff, #b400ff, #fff);
+  background: linear-gradient(90deg, #fff, #ff8ac9, #c38bff, #fff);
   -webkit-background-clip: text;
   color: transparent;
-  animation: shineTitle 4s infinite linear;
+  animation: shine 4s infinite linear;
   background-size: 300%;
 }
 
-@keyframes shineTitle {
+@keyframes shine {
   0% { background-position: 0%; }
   100% { background-position: 300%; }
 }
 
-/* ✨ صورة رائعة مع دخول انسيابي */
+/* الصورة */
 .avatar-box {
   width: 190px;
   height: 190px;
@@ -75,11 +95,13 @@ body {
   overflow: hidden;
   position: relative;
   animation: popIn 1.5s ease forwards;
-  box-shadow: 0 0 25px rgba(0, 224, 255, 0.4);
+  box-shadow: 0 0 25px rgba(255, 168, 220, 0.6);
 }
 
+/* إزالة اللمعة – لا يوجد ::after */
+
 @keyframes popIn {
-  0% { opacity: 0; transform: scale(0.2); filter: blur(10px); }
+  0% { opacity: 0; transform: scale(0.3); filter: blur(10px); }
   100% { opacity: 1; transform: scale(1); filter: blur(0px); }
 }
 
@@ -89,42 +111,43 @@ body {
   object-fit: cover;
 }
 
-/* ✨ لمعة ناعمة تمر فوق الصورة */
-.avatar-box::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-  transform: skewX(-20deg);
-  animation: shineAvatar 5s infinite;
-}
-
-@keyframes shineAvatar {
-  0% { left: -120%; }
-  60% { left: -120%; }
-  100% { left: 140%; }
-}
-
-/* ✨ وصف بسيط */
+/* وصف بتأثير الكتابة */
 .description {
   text-align: center;
-  font-size: 18px;
-  margin: 25px 0;
-  color: #d6d6d6;
-  line-height: 1.6;
+  font-size: 20px;
+  margin: 30px 0 10px;
+  color: #ffeaff;
+  font-weight: 300;
+  min-height: 60px;
 }
 
-/* ✨ جزء الفيديوهات */
+.typing {
+  border-right: 2px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  display: inline-block;
+  animation: typing 5s steps(40) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #fff; }
+}
+
+/* جزء الفيديوهات */
 .videos-box {
   margin-top: 25px;
   padding: 20px;
-  background: rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.12);
   border-radius: 20px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.25);
 }
 
 .videos-scroll {
@@ -141,14 +164,14 @@ body {
   height: 260px;
   border-radius: 18px;
   overflow: hidden;
-  background: black;
-  box-shadow: 0 0 12px rgba(0,255,255,0.3);
+  background: #000;
+  box-shadow: 0 0 15px rgba(255,120,200,0.4);
   transition: 0.3s;
 }
 
 .video-card:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 25px #00e0ff;
+  box-shadow: 0 0 25px rgba(255,80,180,0.6);
 }
 
 .video-card iframe {
@@ -162,15 +185,14 @@ body {
 
 <div class="container">
 
-  <div class="title">Mahmoud — Xat Frame</div>
+  <div class="title">Cute Girl — Xat Profile</div>
 
   <div class="avatar-box">
     <img src="https://img.alfrsantv.com/img/f176506150966251.png" />
   </div>
 
   <div class="description">
-    أحيانًا الجمال مش في التفاصيل… الجمال في اللمسة اللي تسيب أثر ✨<br>
-    الحياة تبقى أحلى لما تبقى أنت شخص خاص.
+    <span class="typing">أحيانًا أجمل شيء في البنت… قلبها وطريقتها الخاصة ✨</span>
   </div>
 
   <div class="videos-box">
