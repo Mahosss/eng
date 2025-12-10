@@ -100,7 +100,7 @@ body {
   100% { transform: translateY(-260px) scale(1.3); opacity: 0; }
 }
 
-/* وصف */
+/* وصف تحت الصورة */
 .description {
   text-align: center;
   font-size: 21px;
@@ -110,69 +110,39 @@ body {
   font-weight: 300;
 }
 
-.typing {
-  border-right: 2px solid #fff;
-  overflow: hidden;
-  white-space: nowrap;
-  display: inline-block;
-  width: 0;
-  animation: typing 5s steps(45) forwards, blink 0.7s infinite;
-}
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: #fff; }
-}
-
 /* ===========================================================
-   ✨ قسم "عنّي" + "حالتي" صغير على اليمين
+   ✨ قسم "عنّي" + الجملة بنفس ستايل حالتي
    =========================================================== */
 .info-section {
     margin-top: 35px;
     direction: rtl;
-}
-
-.info-row {
     text-align: right;
-    margin-bottom: 20px;
 }
 
 .info-btn-inline {
     display: inline-block;
-    padding: 8px 18px;
+    padding: 6px 14px;
     border: none;
     border-radius: 15px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     cursor: default;
     background: linear-gradient(135deg, #ff9edb, #c07dff);
     color: #fff;
-    box-shadow: 0 0 15px rgba(255,120,220,0.6);
-    margin-bottom: 5px;
+    box-shadow: 0 0 12px rgba(255,120,220,0.6);
+    margin-bottom: 8px;
     letter-spacing: 1px;
 }
 
-.info-btn-inline.sub {
-    background: linear-gradient(135deg, #8db9ff, #6d54ff);
-    box-shadow: 0 0 15px rgba(120,150,255,0.6);
-}
-
-.info-text-inline,
-.status-text-inline {
+.info-text-inline {
     display: inline-block;
     background: rgba(255,255,255,0.25);
-    padding: 10px 14px;
+    padding: 12px 16px;
     border-radius: 15px;
     font-size: 16px;
     line-height: 1.6;
     color: #fff;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    margin-right: 10px;
+    box-shadow: 0 0 12px rgba(255,255,255,0.2);
     max-width: 80%;
     text-align: right;
     direction: rtl;
@@ -217,7 +187,6 @@ body {
   height: 100%;
   border: none;
 }
-
 </style>
 </head>
 <body>
@@ -234,19 +203,12 @@ body {
     <span class="typing">البنات مش محتاجة تبذل مجهود… جمالها موجود في أبسط تفاصيلها </span>
   </div>
 
-  <!-- ✨ قسم عنّي + حالتي صغير على اليمين -->
+  <!-- ✨ قسم عنّي + الجملة بنفس ستايل حالتي -->
   <div class="info-section">
-
-    <div class="info-row">
-      <button class="info-btn-inline">عــنّــي</button>
-      <p class="info-text-inline">بنت جميلة وهادية وبتحب التفاصيل البسيطة اللي بتعمل فرق كبير.</p>
-    </div>
-
-    <div class="info-row">
-      <button class="info-btn-inline sub">حالــتــي</button>
-      <p class="status-text-inline">مزاجي وردي… وقلبي هادي… والدنيا جميلة زيّ أصحابها الطيبين.</p>
-    </div>
-
+    <button class="info-btn-inline">عــنّــي</button>
+    <p class="info-text-inline">
+      البنات مش محتاجة تبذل مجهود… جمالها موجود في أبسط تفاصيلها
+    </p>
   </div>
 
   <div class="videos-box">
