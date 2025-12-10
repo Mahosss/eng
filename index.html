@@ -27,16 +27,16 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* 💗 البوكس الجديد */
+/* 💗 البوكس الداخلي */
 .container {
   width: 90%;
   max-width: 900px;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 182, 193, 0.45); /* لون وردي شفاف أغمق */
   border-radius: 30px;
   padding: 45px;
-  box-shadow: 0 0 45px rgba(255, 110, 180, 0.4);
+  box-shadow: 0 0 45px rgba(255, 105, 180, 0.6);
   backdrop-filter: blur(12px);
-  border: 2px solid rgba(255,255,255,0.5);
+  border: 2px solid rgba(255,182,193,0.5);
   position: relative;
 }
 
@@ -82,7 +82,7 @@ body {
   object-fit: cover;
 }
 
-/* فقاعات */
+/* 🌸 فقاعات */
 .avatar-box::before, .avatar-box::after {
   content: "❤";
   position: absolute;
@@ -91,16 +91,8 @@ body {
   animation: float 6s infinite ease-in-out;
 }
 
-.avatar-box::before {
-  left: 18%;
-  top: 100%;
-}
-
-.avatar-box::after {
-  left: 70%;
-  top: 100%;
-  animation-delay: 1.3s;
-}
+.avatar-box::before { left: 18%; top: 100%; }
+.avatar-box::after { left: 70%; top: 100%; animation-delay: 1.3s; }
 
 @keyframes float {
   0%   { transform: translateY(0) scale(0.7); opacity: 0; }
@@ -137,50 +129,54 @@ body {
   50% { border-color: #fff; }
 }
 
-
 /* ===========================================================
-   ✨ قسم "عنّي" + "حالتي"
+   ✨ قسم "عنّي" + "حالتي" صغير على اليمين
    =========================================================== */
-
 .info-section {
-  margin-top: 35px;
-  direction: rtl;
+    margin-top: 35px;
+    direction: rtl;
 }
 
-.info-btn {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 18px;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: default;
-  background: linear-gradient(135deg, #ff9edb, #c07dff);
-  color: #fff;
-  box-shadow: 0 0 18px rgba(255, 120, 220, 0.6);
-  margin-bottom: 10px;
-  letter-spacing: 1px;
+.info-row {
+    text-align: right;
+    margin-bottom: 20px;
 }
 
-.info-btn.sub {
-  background: linear-gradient(135deg, #8db9ff, #6d54ff);
-  box-shadow: 0 0 18px rgba(150,150,255,0.6);
+.info-btn-inline {
+    display: inline-block;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: default;
+    background: linear-gradient(135deg, #ff9edb, #c07dff);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255,120,220,0.6);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
-.info-text,
-.status-text {
-  background: rgba(255,255,255,0.25);
-  padding: 15px;
-  border-radius: 18px;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #fff;
-  margin-bottom: 25px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
-  direction: rtl;
-  text-align: right;
+.info-btn-inline.sub {
+    background: linear-gradient(135deg, #8db9ff, #6d54ff);
+    box-shadow: 0 0 15px rgba(120,150,255,0.6);
 }
 
+.info-text-inline,
+.status-text-inline {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    padding: 10px 14px;
+    border-radius: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    margin-right: 10px;
+    max-width: 80%;
+    text-align: right;
+    direction: rtl;
+}
 
 /* ✨ صندوق الفيديوهات */
 .videos-box {
@@ -238,18 +234,20 @@ body {
     <span class="typing">البنات مش محتاجة تبذل مجهود… جمالها موجود في أبسط تفاصيلها </span>
   </div>
 
-
-  <!-- ✨ قسم عنّي + حالتي -->
+  <!-- ✨ قسم عنّي + حالتي صغير على اليمين -->
   <div class="info-section">
 
-    <button class="info-btn">عــنّــي</button>
-    <p class="info-text">بنت جميلة وهادية وبتحب التفاصيل البسيطة اللي بتعمل فرق كبير.</p>
+    <div class="info-row">
+      <button class="info-btn-inline">عــنّــي</button>
+      <p class="info-text-inline">بنت جميلة وهادية وبتحب التفاصيل البسيطة اللي بتعمل فرق كبير.</p>
+    </div>
 
-    <button class="info-btn sub">حالــتــي</button>
-    <p class="status-text">مزاجي وردي… وقلبي هادي… والدنيا جميلة زيّ أصحابها الطيبين.</p>
+    <div class="info-row">
+      <button class="info-btn-inline sub">حالــتــي</button>
+      <p class="status-text-inline">مزاجي وردي… وقلبي هادي… والدنيا جميلة زيّ أصحابها الطيبين.</p>
+    </div>
 
   </div>
-
 
   <div class="videos-box">
     <div class="videos-scroll">
