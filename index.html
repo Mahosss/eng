@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Engy</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet" />
+
+<!-- أيقونات Font Awesome للمعلومات -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 <style>
 * {
   margin: 0;
@@ -74,6 +78,38 @@ body {
 .btn:hover {
   transform: scale(1.05);
 }
+
+/* صندوق المعلومات الجديد */
+.info-box {
+  background: rgba(255, 192, 203, 0.15);
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 15px;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.8s ease;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+  font-size: 14px;
+  color: #ffd6f1;
+}
+.info-item img {
+  width: 22px;
+  border-radius: 3px;
+}
+.info-item i {
+  font-size: 16px;
+  color: #ff4fa3;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .right-section {
   width: 70%;
   background: #2d1630;
@@ -96,6 +132,7 @@ body {
   line-height: 1.8;
   color: #ffd6f1;
 }
+
 .video-slider {
   display: flex;
   gap: 10px;
@@ -132,17 +169,42 @@ body {
 }
 </style>
 </head>
+
 <body>
 <div class="wrapper">
+
   <div class="left-section">
     <div class="avatar">
       <img src="https://img.alfrsantv.com/img/f176543888491621.png" />
     </div>
+
     <div class="name">𝐸𝑛𝚐𝑦</div>
+
     <button class="btn">عني</button>
+
+    <!-- قسم المعلومات الجديد -->
+    <div class="info-box">
+      <div class="info-item">
+        <img src="https://flagcdn.com/w20/eg.png" alt="Egypt">
+        <span>البلد: مصر</span>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-heart"></i>
+        <span>الهواية: التصميم و البرمجة</span>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-music"></i>
+        <span>الموسيقى المفضلة: هادئة</span>
+      </div>
+    </div>
+
   </div>
 
+
   <div class="right-section">
+
     <div class="box">
       <h3>Contact</h3>
       <p>Reg : iiieNgyyyy </p>
@@ -167,6 +229,7 @@ body {
         <div class="video-item"><iframe src="https://www.youtube.com/embed/qgko7i3piKM"></iframe></div>
       </div>
     </div>
+
   </div>
 </div>
 </body>
