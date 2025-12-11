@@ -1,223 +1,190 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Princess Engy</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>XatSpace Style Profile</title>
 <style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Tajawal', sans-serif;
-  background: linear-gradient(135deg, #ffc1e3, #caa9ff, #a4e4ff);
-  background-size: 300% 300%;
-  animation: dreamyBg 12s ease infinite;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 30px;
-}
+  body{
+    margin:0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+    background:#071018;
+    color:#dce6f3;
+    display:flex;
+    justify-content:center;
+    padding:40px 0;
+  }
 
-@keyframes dreamyBg {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+  .container{
+    width:100%;
+    max-width:1200px;
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:40px;
+  }
 
-/* 💗 البوكس الداخلي */
-.container {
-  width: 90%;
-  max-width: 900px;
-  background: rgba(255, 182, 193, 0.45); /* لون وردي شفاف أغمق */
-  border-radius: 30px;
-  padding: 45px;
-  box-shadow: 0 0 45px rgba(255, 105, 180, 0.6);
-  backdrop-filter: blur(12px);
-  border: 2px solid rgba(255,182,193,0.5);
-  position: relative;
-}
+  /* PROFILE CARD */
+  .profile-box{
+    background:#0b1622;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(0,255,255,0.15);
+  }
 
-/* ✨ تأثير الاسم */
-.title {
-  font-size: 46px;
-  font-weight: 700;
-  text-align: center;
-  background: linear-gradient(90deg, #fff, #ff77c4, #d082ff, #fff);
-  background-size: 250%;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: glitter 4s infinite linear;
-  letter-spacing: 2px;
-}
+  .profile-box img{
+    width:180px;
+    height:180px;
+    border-radius:20px;
+    object-fit:cover;
+    margin-bottom:20px;
+    box-shadow:0 0 20px rgba(0,255,255,0.3);
+  }
 
-@keyframes glitter {
-  0% { background-position: 0%; }
-  100% { background-position: 250%; }
-}
+  .name{
+    font-size:40px;
+    font-weight:700;
+    margin:10px 0;
+    letter-spacing:1px;
+  }
 
-/* ✨ الصورة + الإطار */
-.avatar-box {
-  width: 210px;
-  height: 210px;
-  margin: 25px auto;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  border: 4px solid #ffb5dd;
-  box-shadow: 0 0 35px rgba(255, 130, 200, 0.7);
-  animation: fadePop 1.4s ease both;
-}
+  .xatid{
+    font-size:14px;
+    opacity:0.6;
+    margin-bottom:20px;
+  }
 
-@keyframes fadePop {
-  0% { opacity: 0; transform: scale(0.4); filter: blur(8px); }
-  100% { opacity: 1; transform: scale(1); filter: blur(0); }
-}
+  .status img{
+    margin:20px 0;
+    width:120px;
+  }
 
-.avatar-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .btn{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid #00c8ff;
+    color:#00c8ff;
+    background:transparent;
+    margin:10px 0;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+  }
 
-/* 🌸 فقاعات */
-.avatar-box::before, .avatar-box::after {
-  content: "❤";
-  position: absolute;
-  color: rgba(255, 240, 255, 0.9);
-  font-size: 22px;
-  animation: float 6s infinite ease-in-out;
-}
+  .btn:hover{
+    background:#00c8ff;
+    color:#071018;
+  }
 
-.avatar-box::before { left: 18%; top: 100%; }
-.avatar-box::after { left: 70%; top: 100%; animation-delay: 1.3s; }
+  /* RIGHT SIDE CONTENT */
+  .info-section{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+  }
 
-@keyframes float {
-  0%   { transform: translateY(0) scale(0.7); opacity: 0; }
-  20%  { opacity: 1; }
-  100% { transform: translateY(-260px) scale(1.3); opacity: 0; }
-}
+  .section-card{
+    background:#0b1622;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0,255,255,0.1);
+  }
 
-/* وصف تحت الصورة */
-.description {
-  text-align: center;
-  font-size: 21px;
-  margin-top: 20px;
-  color: #fff;
-  direction: rtl;
-  font-weight: 300;
-}
+  .section-title{
+    font-size:22px;
+    margin-bottom:15px;
+    color:#58d4ff;
+  }
 
-/* ===========================================================
-   ✨ قسم "عنّي" + الجملة بنفس ستايل حالتي
-   =========================================================== */
-.info-section {
-    margin-top: 35px;
-    direction: rtl;
-    text-align: right;
-}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
 
-.info-btn-inline {
-    display: inline-block;
-    padding: 6px 14px;
-    border: none;
-    border-radius: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: default;
-    background: linear-gradient(135deg, #ff9edb, #c07dff);
-    color: #fff;
-    box-shadow: 0 0 12px rgba(255,120,220,0.6);
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-}
+  .contact-box{
+    background:#0f1d2c;
+    padding:15px 20px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(88,212,255,0.08);
+  }
 
-.info-text-inline {
-    display: inline-block;
-    background: rgba(255,255,255,0.25);
-    padding: 12px 16px;
-    border-radius: 15px;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #fff;
-    box-shadow: 0 0 12px rgba(255,255,255,0.2);
-    max-width: 80%;
-    text-align: right;
-    direction: rtl;
-}
+  .contact-label{
+    font-size:12px;
+    opacity:0.6;
+    margin-bottom:5px;
+  }
 
-/* ✨ صندوق الفيديوهات */
-.videos-box {
-  margin-top: 20px;
-  padding: 22px;
-  background: rgba(255,255,255,0.25);
-  border-radius: 22px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 25px rgba(255,255,255,0.3);
-}
+  .contact-text{
+    font-size:18px;
+  }
 
-.videos-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  scroll-behavior: smooth;
-}
-
-.videos-scroll::-webkit-scrollbar { display: none; }
-
-.video-card {
-  flex: 0 0 180px;
-  height: 260px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 0 18px rgba(255,100,200,0.5);
-  transition: 0.3s;
-}
-
-.video-card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 28px rgba(255,70,180,0.8);
-}
-
-.video-card iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+  /* ABOUT TEXT */
+  .about-box{
+    background:#0f1d2c;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 0 15px rgba(0,255,255,0.07);
+    line-height:1.8;
+  }
 </style>
 </head>
 <body>
 
 <div class="container">
 
-  <div class="title">Engy</div>
+  <!-- LEFT: PROFILE -->
+  <div class="profile-box">
+    <img src="https://i.imgur.com/7bFzE0g.png" alt="profile" />
 
-  <div class="avatar-box">
-    <img src="https://img.alfrsantv.com/img/f176475592448291.jpg">
-  </div>
+    <div class="name">PAULO</div>
+    <div class="xatid">(281199)</div>
 
-  <div class="description">
-    <span class="typing">البنات مش محتاجة تبذل مجهود… جمالها موجود في أبسط تفاصيلها </span>
-  </div>
-
-  <!-- ✨ قسم عنّي + الجملة بنفس ستايل حالتي -->
-  <div class="info-section">
-    <button class="info-btn-inline">عــنّــي</button>
-    <p class="info-text-inline">
-      البنات مش محتاجة تبذل مجهود… جمالها موجود في أبسط تفاصيلها
-    </p>
-  </div>
-
-  <div class="videos-box">
-    <div class="videos-scroll">
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/iS-6fT-cBYk"></iframe></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/iMZ1skkbUWI"></iframe></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/RVKbjHpcDQg"></iframe></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/pTo5rjh7J1Y"></iframe></div>
+    <div class="status">
+      <img src="https://xatimg.com/image/Available.png" />
     </div>
+
+    <button class="btn">📩 Get in Touch</button>
+    <button class="btn">♡ ฟ้า จันทร์เธอ</button>
+  </div>
+
+  <!-- RIGHT: INFO SECTIONS -->
+  <div class="info-section">
+
+    <!-- CONTACT -->
+    <div class="section-card">
+      <div class="section-title">Contact</div>
+
+      <div class="contact-grid">
+        <div class="contact-box">
+          <div class="contact-label">FORUM</div>
+          <div class="contact-text">Paulo</div>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-label">EMAIL</div>
+          <div class="contact-text">paulo@xatblog.net</div>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-label">XAT ID</div>
+          <div class="contact-text">/f281199</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section-card">
+      <div class="section-title">About</div>
+      <div class="about-box">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        <br><br>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </div>
+    </div>
+
   </div>
 
 </div>
