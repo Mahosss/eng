@@ -14,101 +14,53 @@
   box-sizing: border-box;
   font-family: "Cairo", sans-serif;
 }
-
 body {
-  background: linear-gradient(135deg, #1c0f1a, #3b0a3d);
+  background: #1c0f1a;
   color: #fff;
   direction: rtl;
   display: flex;
   justify-content: center;
   padding: 30px;
-  min-height: 100vh;
-  background-attachment: fixed;
-  transition: background 0.5s;
 }
-
 .wrapper {
   width: 95%;
   max-width: 1100px;
   display: flex;
   gap: 25px;
-  flex-wrap: wrap;
 }
-
-/* ===== Left Section ===== */
 .left-section {
   width: 30%;
-  background: rgba(45,22,48,0.9);
-  padding: 20px;
+  background: #2d1630;
+  padding: 25px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(255, 80, 150, 0.4);
   text-align: center;
-  position: relative;
 }
-
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   margin: auto;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #ff4fa6;
-  box-shadow: 0 0 25px rgba(255, 82, 160, 0.7);
-  position: relative;
+  box-shadow: 0px 0px 25px rgba(255, 82, 160, 0.7);
   transition: 0.4s;
 }
-
-.avatar::after {
-  content: '';
-  position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
-  border-radius: 50%;
-  background: conic-gradient(#ff4fa6, #ff7ac8, #ff4fa6);
-  opacity: 0.4;
-  filter: blur(15px);
-  animation: rotateHalo 5s linear infinite;
-}
-
-@keyframes rotateHalo {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: 0.4s;
 }
-
 .avatar:hover img {
   transform: scale(1.2);
 }
-
 .name {
   margin-top: 15px;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   color: #ff7ac8;
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(90deg, #ff7ac8, #fff, #ff7ac8);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 2.5s linear infinite;
-  text-shadow: 0 0 8px #ff4fa6, 0 0 15px #ff7ac8;
 }
-
-@keyframes shine {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* ===== Button About ===== */
 .btn {
   width: 100%;
   margin-top: 15px;
@@ -123,10 +75,8 @@ body {
 }
 .btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #ff7ac8;
 }
 
-/* ===== Info Box ===== */
 .info-box {
   background: rgba(255, 192, 203, 0.15);
   border: 1px solid rgba(255, 105, 180, 0.3);
@@ -136,7 +86,6 @@ body {
   backdrop-filter: blur(6px);
   animation: fadeIn 0.8s ease;
 }
-
 .info-item {
   display: flex;
   align-items: center;
@@ -144,24 +93,7 @@ body {
   margin: 8px 0;
   font-size: 14px;
   color: #ffd6f1;
-  position: relative;
 }
-
-.info-item:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  left: 105%;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #ff4fa6;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 10px;
-  white-space: nowrap;
-  font-size: 12px;
-  box-shadow: 0 0 8px #ff7ac8;
-}
-
 .info-item img {
   width: 22px;
   border-radius: 3px;
@@ -170,21 +102,18 @@ body {
   font-size: 16px;
   color: #ff4fa3;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== Right Section ===== */
 .right-section {
-  width: 65%;
-  background: rgba(45,22,48,0.9);
+  width: 70%;
+  background: #2d1630;
   padding: 25px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(255, 80, 150, 0.4);
 }
-
 .box {
   background: #3b1a3f;
   padding: 20px;
@@ -192,38 +121,13 @@ body {
   margin-bottom: 20px;
   border-right: 4px solid #ff4fa6;
 }
-
 .box h3 {
   margin-bottom: 10px;
   color: #ff9ad9;
 }
-
 .about-text {
   line-height: 1.8;
   color: #ffd6f1;
-}
-
-/* Carousel for About Text */
-.about-carousel {
-  position: relative;
-  overflow: hidden;
-  height: 70px;
-}
-
-.about-carousel p {
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  animation: fadeText 12s linear infinite;
-}
-
-.about-carousel p:nth-child(1) { animation-delay: 0s; }
-.about-carousel p:nth-child(2) { animation-delay: 4s; }
-.about-carousel p:nth-child(3) { animation-delay: 8s; }
-
-@keyframes fadeText {
-  0%, 25% { opacity: 1; transform: translateY(0); }
-  33%, 100% { opacity: 0; transform: translateY(-20px); }
 }
 
 .video-slider {
@@ -253,8 +157,42 @@ body {
 }
 
 @media (max-width: 768px) {
-  .wrapper { flex-direction: column; }
-  .left-section, .right-section { width: 100%; }
+  .wrapper {
+    flex-direction: column;
+  }
+  .left-section, .right-section {
+    width: 100%;
+  }
+}
+
+
+
+.name {
+  margin-top: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #ff7ac8;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    #ff7ac8,
+    #fff,
+    #ff7ac8
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2.5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 </style>
 </head>
@@ -267,28 +205,30 @@ body {
       <img src="https://img.alfrsantv.com/img/f176543888491621.png" />
     </div>
 
-    <div class="name">𝐸𝑛𝚐𝑦</div>
+    <div class="name">𝗘𝑛𝚐𝑦</div>
 
     <button class="btn">عني</button>
 
-    <!-- قسم المعلومات الجديد -->
+
     <div class="info-box">
-      <div class="info-item" data-tooltip="البلد الأصلي">
+      <div class="info-item">
         <img src="https://flagcdn.com/w20/eg.png" alt="Egypt">
         <span>البلد: مصر</span>
       </div>
 
-      <div class="info-item" data-tooltip="هواية السفر ممتعة جداً">
+      <div class="info-item">
         <i class="fas fa-heart"></i>
         <span>الهواية: السفر </span>
       </div>
 
-      <div class="info-item" data-tooltip="أفضل أنواع الموسيقى الهادئة للاسترخاء">
+      <div class="info-item">
         <i class="fas fa-music"></i>
-        <span>الموسيقى المفضلة: هادئة</span>
+        <span>الموسيقى : هادئة</span>
       </div>
     </div>
+
   </div>
+
 
   <div class="right-section">
 
@@ -300,15 +240,13 @@ body {
 
     <div class="box">
       <h3>الحالة</h3>
-      <div class="about-carousel">
-        <p>ومرة فى العمر يقف الإنسان بجوار أحدهم ولا يود التحرك حتى لوفاته العالم</p>
-        <p>الحياة قصيرة، فاستمتع بكل لحظة</p>
-        <p>كل يوم جديد فرصة لتعلم شيء جديد</p>
-      </div>
+      <p class="about-text">
+ومرة فى العمر يقف الإنسان بجوار أحدهم ولا يود التحرك حتى لوفاته العالم
+      </p>
     </div>
 
     <div class="box">
-      <h3>My Videos</h3>
+      <h3>فيديوهاتى</h3>
       <div class="video-slider">
         <div class="video-item"><iframe src="https://www.youtube.com/embed/DJfC7PTE0_0"></iframe></div>
         <div class="video-item"><iframe src="https://www.youtube.com/embed/IZGcNcxgPDI"></iframe></div>
