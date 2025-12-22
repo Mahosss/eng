@@ -100,9 +100,9 @@ body {
 
 .tabs {
   display: flex;
-  flex-direction: row-reverse;
   gap: 15px;
-  justify-content: flex-end;
+  justify-content: flex-start; /* بدأ التبويبات من جهة اليمين */
+  flex-direction: row-reverse;
 }
 
 .tab {
@@ -200,7 +200,7 @@ body {
   }
   .tabs {
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 }
 </style>
