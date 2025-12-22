@@ -3,61 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Engy</title>
+<title>engy</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-body { background: #1c0f1a; color: #fff; direction: rtl; display: flex; justify-content: center; padding: 30px; }
-.profile-wrapper { width: 100%; max-width: 1000px; border-radius: 20px; overflow: hidden; box-shadow: 10px 10px 30px rgba(255,80,150,0.5), -10px -10px 30px rgba(255,255,255,0.05); background: linear-gradient(145deg, #2a1326, #3b1a3f); }
-.cover-photo { width: 100%; height: 220px; background: url('https://scontent.fcai21-2.fna.fbcdn.net/v/t39.30808-6/600360241_856936133923976_1250234941947422008_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=eQ4wjU7z-5cQ7kNvwE1GUsl&_nc_oc=AdkIToZkLOw6zFABh0fSJgpp-o_9AZ4MFxh_rkyVMTNbnuCj-UphtFiWwdPo6SQBjbM&_nc_zt=23&_nc_ht=scontent.fcai21-2.fna&_nc_gid=oJMmaXey7p3KfbTpPRucIw&oh=00_AfnTSnrZIy7wMeuIMyPheYcDmJfDo0sMo8Psw_WfCN5lOg&oe=694EA4C3') center/cover no-repeat; position: relative; }
-.avatar-wrapper { position: absolute; left: 50%; bottom: -85px; transform: translateX(-50%); width: 170px; height: 170px; border-radius: 50%; border: 5px solid #ff4fa6; overflow: hidden; box-shadow: inset 0 0 25px rgba(255,255,255,0.2), 0 0 25px rgba(255,82,160,0.7); background: #ff4fa6; }
-.avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.avatar-wrapper:hover img { transform: scale(1.2); }
-.profile-content { margin-top: 100px; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-.name { font-size: 32px; font-weight: bold; text-align: center; margin-bottom: 15px; background: linear-gradient(90deg,#ff7ac8,#fff,#ff7ac8); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 2.5s linear infinite; }
-@keyframes shine { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-.info-box { background: rgba(255,192,203,0.15); border: 1px solid rgba(255,105,180,0.3); padding: 15px; border-radius: 20px; margin: 15px auto; max-width: 400px; backdrop-filter: blur(8px); box-shadow: inset 0 0 15px rgba(255,255,255,0.1); }
-.info-item { display: flex; align-items: center; gap: 10px; margin: 10px 0; font-size: 14px; color: #ffd6f1; }
-.info-item img { width: 22px; border-radius: 3px; }
-.info-item i { font-size: 16px; color: #ff4fa3; }
-.box { background: linear-gradient(145deg, #3b1a3f, #4c204f); padding: 20px; border-radius: 20px; margin-bottom: 20px; border-right: 5px solid #ff4fa6; box-shadow: inset 0 0 15px rgba(255,255,255,0.05); width: 90%; max-width: 700px; }
-.box h3 { margin-bottom: 10px; color: #ff9ad9; }
-.about-text { line-height: 1.8; color: #ffd6f1; }
-.video-slider { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; }
-.video-slider::-webkit-scrollbar { height: 12px; }
-.video-slider::-webkit-scrollbar-thumb { background: #ff4fa6; border-radius: 10px; }
-.video-item { min-width: 160px; height: 280px; border-radius: 15px; overflow: hidden; box-shadow: 0 0 15px rgba(255,82,160,0.6); }
-.video-item iframe { width: 100%; height: 100%; border: none; }
-@media (max-width: 768px) { .profile-content { padding: 10px; } .video-item { min-width: 140px; height: 220px; } }
+body { background: #f0f2f5; color: #050505; }
+.profile-container { max-width: 1000px; margin: 20px auto; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.cover-photo { width: 100%; height: 250px; background: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGNvdmVyJTIwcGhvdG98ZW58MHx8fHwxNjAxOTQwNjk3&ixlib=rb-4.0.3&q=80&w=1080') center/cover no-repeat; position: relative; }
+.avatar { position: absolute; right: 30px; bottom: -60px; width: 120px; height: 120px; border-radius: 50%; border: 4px solid #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.profile-header { padding: 80px 30px 30px 30px; text-align: right; }
+.profile-name { font-size: 24px; font-weight: bold; margin-bottom: 5px; }
+.profile-desc { font-size: 16px; color: #555; margin-bottom: 20px; }
+.tab-card { background: #fff; padding: 20px; border-top: 1px solid #ddd; }
+.tabs { display: flex; gap: 20px; border-bottom: 1px solid #ddd; margin-bottom: 15px; }
+.tab { cursor: pointer; padding: 10px 15px; font-weight: bold; color: #555; border-radius: 5px; }
+.tab.active { background: #e4e6eb; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.post { background: #f0f2f5; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+.post img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
+.image-grid { display: flex; gap: 10px; flex-wrap: wrap; }
+.image-grid img { width: calc(33.33% - 6.66px); border-radius: 10px; }
+.reels-grid { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; }
+.reels-grid iframe { width: 200px; height: 120px; border-radius: 10px; border: none; }
+@media (max-width: 768px) { .avatar { right: 20px; bottom: -50px; width: 100px; height: 100px; } .tab { padding: 8px 12px; font-size: 14px; } .reels-grid iframe { width: 150px; height: 90px; } }
 </style>
 </head>
 <body>
-<div class="profile-wrapper">
+<div class="profile-container">
   <div class="cover-photo">
-    <div class="avatar-wrapper">
-      <img src="https://img.alfrsantv.com/img/f176543888491621.png">
-    </div>
+    <div class="avatar"><img src="https://img.alfrsantv.com/img/f176543888491621.png"></div>
   </div>
-  <div class="profile-content">
-    <div class="name">𝗘𝑛𝚐𝑦</div>
-    <div class="info-box">
-      <div class="info-item"><img src="https://flagcdn.com/w20/eg.png" alt="Egypt"><span>البلد: مصر</span></div>
-      <div class="info-item"><i class="fas fa-heart"></i><span>الهواية: السفر</span></div>
-      <div class="info-item"><i class="fas fa-music"></i><span>الموسيقى : هادئة</span></div>
+  <div class="profile-header">
+    <div class="profile-name">𝗘𝑛𝚐𝑦</div>
+    <div class="profile-desc">هذا وصف قصير تحت الاسم لشرح الشخص أو البروفايل.</div>
+  </div>
+  <div class="tab-card">
+    <div class="tabs">
+      <div class="tab active" data-tab="posts">المنشورات</div>
+      <div class="tab" data-tab="photos">الصور</div>
+      <div class="tab" data-tab="reels">ريلز</div>
     </div>
-    <div class="box"><h3>Contact</h3><p>Reg : iiieNgyyyy </p><p>ID : 1537433971</p></div>
-    <div class="box"><h3>الحالة</h3><p class="about-text">ومرة فى العمر يقف الإنسان بجوار أحدهم ولا يود التحرك حتى لوفاته العالم</p></div>
-    <div class="box"><h3>فيديوهاتى</h3>
-      <div class="video-slider">
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/DJfC7PTE0_0"></iframe></div>
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/IZGcNcxgPDI"></iframe></div>
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/sewClNjqGa8"></iframe></div>
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/0nURRcxaKXE"></iframe></div>
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/pPYlntArFqE"></iframe></div>
+    <div class="tab-content active" id="posts">
+      <div class="post">هذا هو المنشور الأول.</div>
+      <div class="post">هذا هو المنشور الثاني.</div>
+      <div class="post">هذا هو المنشور الثالث.</div>
+    </div>
+    <div class="tab-content" id="photos">
+      <div class="image-grid">
+        <img src="https://picsum.photos/300/200?1" />
+        <img src="https://picsum.photos/300/200?2" />
+        <img src="https://picsum.photos/300/200?3" />
+      </div>
+    </div>
+    <div class="tab-content" id="reels">
+      <div class="reels-grid">
+        <iframe src="https://www.youtube.com/embed/DJfC7PTE0_0"></iframe>
+        <iframe src="https://www.youtube.com/embed/IZGcNcxgPDI"></iframe>
+        <iframe src="https://www.youtube.com/embed/sewClNjqGa8"></iframe>
+        <iframe src="https://www.youtube.com/embed/0nURRcxaKXE"></iframe>
+        <iframe src="https://www.youtube.com/embed/pPYlntArFqE"></iframe>
       </div>
     </div>
   </div>
 </div>
+<script>
+const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    contents.forEach(c => c.classList.remove('active'));
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
