@@ -3,17 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Engy</title>
+<title>Engy - Plush Style</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Cairo", sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
 body {
   background: #1c0f1a;
   color: #fff;
@@ -22,18 +17,13 @@ body {
   justify-content: center;
   padding: 30px;
 }
-.wrapper {
-  width: 95%;
-  max-width: 1100px;
-  display: flex;
-  gap: 25px;
-}
+.wrapper { width: 95%; max-width: 1100px; display: flex; gap: 25px; }
 .left-section {
   width: 30%;
-  background: #2d1630;
+  background: linear-gradient(145deg, #2a1326, #3b1a3f);
   padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 80, 150, 0.4);
+  border-radius: 25px;
+  box-shadow: 10px 10px 30px rgba(255, 80, 150, 0.5), -10px -10px 30px rgba(255, 255, 255, 0.05);
   text-align: center;
 }
 .avatar {
@@ -43,245 +33,95 @@ body {
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #ff4fa6;
-  box-shadow: 0px 0px 25px rgba(255, 82, 160, 0.7);
-  transition: 0.4s;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2), 0px 0px 25px rgba(255, 82, 160, 0.7);
+  transition: 0.5s;
 }
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.4s;
-}
-.avatar:hover img {
-  transform: scale(1.2);
-}
+.avatar img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.avatar:hover img { transform: scale(1.2); }
 .name {
   margin-top: 15px;
-  font-size: 30px;
-  font-weight: bold;
-  color: #ff7ac8;
-}
-.btn {
-  width: 100%;
-  margin-top: 15px;
-  background: #ff4fa6;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.btn:hover {
-  transform: scale(1.05);
-}
-
-.info-box {
-  background: rgba(255, 192, 203, 0.15);
-  border: 1px solid rgba(255, 105, 180, 0.3);
-  padding: 15px;
-  border-radius: 15px;
-  margin-top: 15px;
-  backdrop-filter: blur(6px);
-  animation: fadeIn 0.8s ease;
-}
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 8px 0;
-  font-size: 14px;
-  color: #ffd6f1;
-}
-.info-item img {
-  width: 22px;
-  border-radius: 3px;
-}
-.info-item i {
-  font-size: 16px;
-  color: #ff4fa3;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.right-section {
-  width: 70%;
-  background: #2d1630;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 80, 150, 0.4);
-}
-.box {
-  background: #3b1a3f;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  border-right: 4px solid #ff4fa6;
-}
-.box h3 {
-  margin-bottom: 10px;
-  color: #ff9ad9;
-}
-.about-text {
-  line-height: 1.8;
-  color: #ffd6f1;
-}
-
-.video-slider {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
-.video-slider::-webkit-scrollbar {
-  height: 12px;
-}
-.video-slider::-webkit-scrollbar-thumb {
-  background: #ff4fa6;
-  border-radius: 10px;
-}
-.video-item {
-  min-width: 160px;
-  height: 280px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(255, 82, 160, 0.6);
-}
-.video-item iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-@media (max-width: 768px) {
-  .wrapper {
-    flex-direction: column;
-  }
-  .left-section, .right-section {
-    width: 100%;
-  }
-}
-
-
-
-.name {
-  margin-top: 15px;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
   color: #ff7ac8;
   position: relative;
   display: inline-block;
-  background: linear-gradient(
-    90deg,
-    #ff7ac8,
-    #fff,
-    #ff7ac8
-  );
+  background: linear-gradient(90deg, #ff7ac8, #fff, #ff7ac8);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 2.5s linear infinite;
 }
-
-@keyframes shine {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+@keyframes shine { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.btn {
+  width: 100%; margin-top: 15px; background: #ff4fa6; padding: 10px; border: none; border-radius: 12px;
+  color: #fff; font-size: 18px; cursor: pointer; transition: 0.3s;
 }
-
-
-
-::-webkit-scrollbar {
-  width: 12px;      
-  height: 12px;     
-  background: #2d1630; 
-  border-radius: 10px;
+.btn:hover { transform: scale(1.05); }
+.info-box {
+  background: rgba(255, 192, 203, 0.15);
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  padding: 15px; border-radius: 20px;
+  margin-top: 15px;
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.1);
 }
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ff4fa6, #ff7ac8); 
-  border-radius: 10px;
-  border: 3px solid #2d1630; 
+.info-item { display: flex; align-items: center; gap: 10px; margin: 10px 0; font-size: 14px; color: #ffd6f1; }
+.info-item img { width: 22px; border-radius: 3px; }
+.info-item i { font-size: 16px; color: #ff4fa3; }
+.right-section {
+  width: 70%;
+  background: linear-gradient(145deg, #2a1326, #3b1a3f);
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 10px 10px 30px rgba(255, 80, 150, 0.5), -10px -10px 30px rgba(255, 255, 255, 0.05);
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ff7ac8, #ff4fa6);
+.box {
+  background: linear-gradient(145deg, #3b1a3f, #4c204f);
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border-right: 5px solid #ff4fa6;
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.05);
 }
-
-::-webkit-scrollbar-track:hover {
-  background: #3b1a3f;
-}
-
+.box h3 { margin-bottom: 10px; color: #ff9ad9; }
+.about-text { line-height: 1.8; color: #ffd6f1; }
+.video-slider { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; }
+.video-slider::-webkit-scrollbar { height: 12px; }
+.video-slider::-webkit-scrollbar-thumb { background: #ff4fa6; border-radius: 10px; }
+.video-item { min-width: 160px; height: 280px; border-radius: 15px; overflow: hidden; box-shadow: 0 0 15px rgba(255, 82, 160, 0.6); }
+.video-item iframe { width: 100%; height: 100%; border: none; }
+@media (max-width: 768px) { .wrapper { flex-direction: column; } .left-section, .right-section { width: 100%; } }
 </style>
 </head>
-
 <body>
 <div class="wrapper">
 
-  <div class="left-section">
-    <div class="avatar">
-      <img src="https://img.alfrsantv.com/img/f176543888491621.png" />
-    </div>
-
-    <div class="name">𝗘𝑛𝚐𝑦</div>
-
-    <button class="btn">عني</button>
-
-
-    <div class="info-box">
-      <div class="info-item">
-        <img src="https://flagcdn.com/w20/eg.png" alt="Egypt">
-        <span>البلد: مصر</span>
-      </div>
-
-      <div class="info-item">
-        <i class="fas fa-heart"></i>
-        <span>الهواية: السفر </span>
-      </div>
-
-      <div class="info-item">
-        <i class="fas fa-music"></i>
-        <span>الموسيقى : هادئة</span>
-      </div>
-    </div>
-
+<div class="left-section">
+  <div class="avatar">
+    <img src="https://img.alfrsantv.com/img/f176543888491621.png" />
   </div>
-
-
-  <div class="right-section">
-
-    <div class="box">
-      <h3>Contact</h3>
-      <p>Reg : iiieNgyyyy </p>
-      <p>ID : 1537433971</p>
-    </div>
-
-    <div class="box">
-      <h3>الحالة</h3>
-      <p class="about-text">
-ومرة فى العمر يقف الإنسان بجوار أحدهم ولا يود التحرك حتى لوفاته العالم
-      </p>
-    </div>
-
-    <div class="box">
-      <h3>فيديوهاتى</h3>
-      <div class="video-slider">
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/DJfC7PTE0_0"></iframe></div>
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/IZGcNcxgPDI"></iframe></div>
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/sewClNjqGa8"></iframe></div>
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/0nURRcxaKXE"></iframe></div>
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/pPYlntArFqE"></iframe></div>
-        <div class="video-item"><iframe src="https://www.youtube.com/embed/4PSV2N0Bthk"></iframe></div>
-      </div>
-    </div>
-
+  <div class="name">𝗘𝑛𝚐𝑦</div>
+  <button class="btn">عني</button>
+  <div class="info-box">
+    <div class="info-item"><img src="https://flagcdn.com/w20/eg.png" alt="Egypt"><span>البلد: مصر</span></div>
+    <div class="info-item"><i class="fas fa-heart"></i><span>الهواية: السفر</span></div>
+    <div class="info-item"><i class="fas fa-music"></i><span>الموسيقى : هادئة</span></div>
   </div>
+</div>
+
+<div class="right-section">
+  <div class="box"><h3>Contact</h3><p>Reg : iiieNgyyyy </p><p>ID : 1537433971</p></div>
+  <div class="box"><h3>الحالة</h3><p class="about-text">ومرة فى العمر يقف الإنسان بجوار أحدهم ولا يود التحرك حتى لوفاته العالم</p></div>
+  <div class="box"><h3>فيديوهاتى</h3>
+    <div class="video-slider">
+      <div class="video-item"><iframe src="https://www.youtube.com/embed/DJfC7PTE0_0"></iframe></div>
+      <div class="video-item"><iframe src="https://www.youtube.com/embed/IZGcNcxgPDI"></iframe></div>
+      <div class="video-item"><iframe src="https://www.youtube.com/embed/sewClNjqGa8"></iframe></div>
+      <div class="video-item"><iframe src="https://www.youtube.com/embed/0nURRcxaKXE"></iframe></div>
+      <div class="video-item"><iframe src="https://www.youtube.com/embed/pPYlntArFqE"></iframe></div>
+    </div>
+  </div>
+</div>
 </div>
 </body>
 </html>
