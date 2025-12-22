@@ -21,8 +21,8 @@ body { background: #f0f2f5; color: #050505; }
 .verified { color: #1da1f2; font-size: 22px; }
 .profile-desc { text-align: right; font-size: 16px; color: #333; margin: 10px 30px 20px 30px; }
 
-.tab-card { background: rgba(255,255,255,0.95); padding: 15px 20px; margin: 0 30px 20px 30px; border-radius: 15px; border: 1px solid #ddd; backdrop-filter: blur(6px); }
-.tabs { display: flex; gap: 15px; justify-content: flex-end; flex-direction: row-reverse; }
+.tab-card { background: rgba(255,255,255,0.95); padding: 15px 20px; margin: 0 30px 20px 30px; border-radius: 15px; border: 1px solid #ddd; backdrop-filter: blur(6px); text-align: right; }
+.tabs { display: flex; gap: 15px; justify-content: flex-end; }
 .tab { cursor: pointer; padding: 8px 12px; font-weight: bold; color: #555; border-radius: 5px; background: #e4e6eb; transition: 0.3s; }
 .tab.active { background: #d0d2d5; }
 .tab:hover { background: #ccc; }
@@ -63,9 +63,9 @@ body { background: #f0f2f5; color: #050505; }
 
   <div class="tab-card">
     <div class="tabs">
-      <div class="tab" data-tab="reels">ريلز</div>
-      <div class="tab" data-tab="photos">الصور</div>
       <div class="tab active" data-tab="posts">المنشورات</div>
+      <div class="tab" data-tab="photos">الصور</div>
+      <div class="tab" data-tab="reels">ريلز</div>
     </div>
 
     <div class="tab-content active" id="posts">
