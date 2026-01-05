@@ -8,6 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --profile-img: url("https://img.alfrsantv.com/img/f176543888491621.png");
+  --cover-img: url("https://img.alfrsantv.com/img/cover.jpg"); /* ← حطي صورة الغلاف هنا */
+}
+
 *{
   box-sizing:border-box;
   font-family:'Cairo', sans-serif;
@@ -20,8 +25,10 @@ body{
 
 /* ===== الغلاف ===== */
 .cover{
-  height:200px;
-  background:linear-gradient(135deg,#f7e8ff,#ffd9ef);
+  height:220px;
+  background-image:var(--cover-img);
+  background-size:cover;
+  background-position:center;
 }
 
 /* ===== صندوق البروفايل ===== */
@@ -45,8 +52,11 @@ body{
   width:140px;
   height:140px;
   border-radius:50%;
-  border:5px solid #f7e8ff;
+  border:5px solid #fff;
   object-fit:cover;
+  background-image:var(--profile-img);
+  background-size:cover;
+  background-position:center;
 }
 
 .profile-info{
@@ -84,10 +94,13 @@ body{
   gap:10px;
 }
 
-.post-header img{
+.post-avatar{
   width:45px;
   height:45px;
   border-radius:50%;
+  background-image:var(--profile-img);
+  background-size:cover;
+  background-position:center;
 }
 
 .post-meta{
@@ -110,23 +123,18 @@ body{
   color:#444;
 }
 
-.post img.post-img{
+.post-img{
   width:100%;
   border-radius:15px;
   margin-top:10px;
+  background-image:var(--profile-img);
+  background-size:cover;
+  background-position:center;
+  height:300px;
 }
 
-/* ===== موبايل ===== */
-@media(max-width:768px){
-  .profile-top{
-    flex-direction:column;
-    text-align:center;
-  }
-}
-
-
-
-  .fb-verified{
+/* ===== توثيق فيسبوك ===== */
+.fb-verified{
   display:inline-block;
   width:18px;
   height:18px;
@@ -149,6 +157,13 @@ body{
   transform:rotate(45deg);
 }
 
+/* ===== موبايل ===== */
+@media(max-width:768px){
+  .profile-top{
+    flex-direction:column;
+    text-align:center;
+  }
+}
 </style>
 </head>
 
@@ -160,12 +175,12 @@ body{
 <!-- البروفايل -->
 <div class="profile-box">
   <div class="profile-top">
-    <img class="avatar" src="https://img.alfrsantv.com/img/f176543888491621.png">
+    <div class="avatar"></div>
     <div class="profile-info">
-<div class="name">
-  Ếᶇᶃƴ
-  <span class="fb-verified" title="حساب موثّق"></span>
-</div>
+      <div class="name">
+        Ếᶇᶃƴ
+        <span class="fb-verified" title="حساب موثّق"></span>
+      </div>
       <div class="bio">أحب الهدوء، القهوة، والموسيقى 🎧💗</div>
     </div>
   </div>
@@ -177,9 +192,9 @@ body{
   <!-- بوست 1 -->
   <div class="post">
     <div class="post-header">
-      <img src="https://i.imgur.com/6VBx3io.jpg">
+      <div class="post-avatar"></div>
       <div class="post-meta">
-        <div class="post-name">لونا</div>
+        <div class="post-name">Ếᶇᶃƴ</div>
         <div class="post-time">منذ ساعة</div>
       </div>
     </div>
@@ -191,16 +206,16 @@ body{
   <!-- بوست 2 -->
   <div class="post">
     <div class="post-header">
-      <img src="https://i.imgur.com/6VBx3io.jpg">
+      <div class="post-avatar"></div>
       <div class="post-meta">
-        <div class="post-name">لونا</div>
+        <div class="post-name">Ếᶇᶃƴ</div>
         <div class="post-time">أمس</div>
       </div>
     </div>
     <div class="post-text">
       مزاجي اليوم 🌸
     </div>
-    <img class="post-img" src="https://picsum.photos/600/400?girl">
+    <div class="post-img"></div>
   </div>
 
 </div>
