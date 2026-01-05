@@ -18,7 +18,6 @@ body{
   background:#f0f2f5;
 }
 
-/* ===== الغلاف ===== */
 .cover{
   height:260px;
   background:url("https://picsum.photos/1200/500?girl") center/cover no-repeat;
@@ -32,7 +31,6 @@ body{
   background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.5));
 }
 
-/* ===== صندوق البروفايل ===== */
 .profile-box{
   max-width:900px;
   margin:-90px auto 20px;
@@ -74,7 +72,6 @@ body{
   margin-top:6px;
 }
 
-/* ===== توثيق فيسبوك ===== */
 .fb-verified{
   display:inline-block;
   width:18px;
@@ -98,7 +95,6 @@ body{
   transform:rotate(45deg);
 }
 
-/* ===== البوستات ===== */
 .posts{
   max-width:900px;
   margin:30px auto;
@@ -151,7 +147,6 @@ body{
   margin-top:10px;
 }
 
-/* ===== موبايل ===== */
 @media(max-width:768px){
   .profile-top{
     flex-direction:column;
@@ -163,10 +158,8 @@ body{
 
 <body>
 
-<!-- الغلاف -->
 <div class="cover"></div>
 
-<!-- البروفايل -->
 <div class="profile-box">
   <div class="profile-top">
     <img id="profileAvatar" class="avatar"
@@ -176,12 +169,11 @@ body{
         Ếᶇᶃƴ
         <span class="fb-verified" title="حساب موثّق"></span>
       </div>
-      <div class="bio">أحب الهدوء، القهوة، والموسيقى 🎧💗</div>
+      <div class="bio">أحب الاكل، العصائر، والنوم 🎧💗</div>
     </div>
   </div>
 </div>
 
-<!-- البوستات -->
 <div class="posts">
 
   <div class="post">
@@ -213,7 +205,6 @@ body{
 
 </div>
 
-<!-- ربط صور البوستات تلقائي من صورة البروفايل -->
 <script>
 const avatarSrc = document.getElementById("profileAvatar").src;
 document.querySelectorAll(".post-avatar").forEach(img=>{
