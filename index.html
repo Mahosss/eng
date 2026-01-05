@@ -123,6 +123,32 @@ body{
     text-align:center;
   }
 }
+
+
+
+  .fb-verified{
+  display:inline-block;
+  width:18px;
+  height:18px;
+  margin-right:6px;
+  background:#1877f2;
+  border-radius:50%;
+  position:relative;
+  top:2px;
+}
+
+.fb-verified::after{
+  content:"";
+  position:absolute;
+  left:5px;
+  top:3px;
+  width:4px;
+  height:8px;
+  border:solid #fff;
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
+
 </style>
 </head>
 
@@ -138,7 +164,7 @@ body{
     <div class="profile-info">
 <div class="name">
   لونا
-  <span class="verified">✔</span>
+  <span class="fb-verified" title="حساب موثّق"></span>
 </div>
       <div class="bio">أحب الهدوء، القهوة، والموسيقى 🎧💗</div>
     </div>
