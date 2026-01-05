@@ -20,19 +20,17 @@ body{
 
 /* ===== COVER ===== */
 .cover{
-  height:260px;
-  background:linear-gradient(135deg,#d66efd,#f3b4ff);
-  position:relative;
+  height:200px;
+  background:linear-gradient(135deg,#f3e7ff,#ffd6f5);
 }
 
-/* ===== PROFILE ===== */
+/* ===== PROFILE BOX ===== */
 .profile-box{
   max-width:900px;
-  margin:auto;
+  margin:20px auto;
   background:#fff;
   border-radius:20px;
   padding:20px;
-  margin-top:-80px;
   box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
@@ -46,17 +44,18 @@ body{
   width:140px;
   height:140px;
   border-radius:50%;
-  border:6px solid #fff;
+  border:5px solid #f3e7ff;
   object-fit:cover;
 }
 
 .name{
   font-size:28px;
   font-weight:700;
+  color:#333;
 }
 
 .bio{
-  color:#666;
+  color:#777;
   margin-top:5px;
 }
 
@@ -89,12 +88,18 @@ body{
 
 .post-name{
   font-weight:700;
+  color:#333;
+}
+
+.post-time{
+  color:#888;
+  font-size:13px;
 }
 
 .post-text{
   margin:10px 0;
   line-height:1.7;
-  color:#333;
+  color:#444;
 }
 
 .post img.post-img{
@@ -138,7 +143,7 @@ body{
       <img src="https://i.imgur.com/6VBx3io.jpg">
       <div>
         <div class="post-name">Luna</div>
-        <small style="color:#888">منذ ساعة</small>
+        <div class="post-time">منذ ساعة</div>
       </div>
     </div>
     <div class="post-text">
@@ -152,7 +157,7 @@ body{
       <img src="https://i.imgur.com/6VBx3io.jpg">
       <div>
         <div class="post-name">Luna</div>
-        <small style="color:#888">أمس</small>
+        <div class="post-time">أمس</div>
       </div>
     </div>
     <div class="post-text">
