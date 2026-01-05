@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <title>Profile</title>
@@ -16,6 +16,7 @@
 body{
   margin:0;
   background:#f0f2f5;
+  direction:rtl;
 }
 
 /* ===== COVER ===== */
@@ -32,12 +33,14 @@ body{
   border-radius:20px;
   padding:20px;
   box-shadow:0 10px 30px rgba(0,0,0,.1);
+  text-align:right;
 }
 
 .profile-top{
   display:flex;
   align-items:center;
   gap:20px;
+  flex-direction:row-reverse;
 }
 
 .avatar{
@@ -71,6 +74,7 @@ body{
   padding:15px;
   margin-bottom:20px;
   box-shadow:0 5px 15px rgba(0,0,0,.08);
+  text-align:right;
 }
 
 .post-header{
@@ -78,6 +82,7 @@ body{
   align-items:center;
   gap:10px;
   margin-bottom:10px;
+  flex-direction:row-reverse;
 }
 
 .post-header img{
@@ -128,7 +133,7 @@ body{
   <div class="profile-top">
     <img class="avatar" src="https://i.imgur.com/6VBx3io.jpg">
     <div>
-      <div class="name">Luna ✨</div>
+      <div class="name">لونا ✨</div>
       <div class="bio">أحب الهدوء، القهوة، والموسيقى 🎧💗</div>
     </div>
   </div>
@@ -142,7 +147,7 @@ body{
     <div class="post-header">
       <img src="https://i.imgur.com/6VBx3io.jpg">
       <div>
-        <div class="post-name">Luna</div>
+        <div class="post-name">لونا</div>
         <div class="post-time">منذ ساعة</div>
       </div>
     </div>
@@ -156,7 +161,7 @@ body{
     <div class="post-header">
       <img src="https://i.imgur.com/6VBx3io.jpg">
       <div>
-        <div class="post-name">Luna</div>
+        <div class="post-name">لونا</div>
         <div class="post-time">أمس</div>
       </div>
     </div>
