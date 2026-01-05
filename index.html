@@ -8,11 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --profile-img: url("https://img.alfrsantv.com/img/f176543888491621.png");
-  --cover-img: url("https://img.alfrsantv.com/img/f176759891637631.jpg"); 
-}
-
 *{
   box-sizing:border-box;
   font-family:'Cairo', sans-serif;
@@ -25,21 +20,29 @@ body{
 
 /* ===== الغلاف ===== */
 .cover{
-  height:220px;
-  background-image:var(--cover-img);
-  background-size:cover;
-  background-position:center;
+  height:260px;
+  background:url("https://picsum.photos/1200/500?girl") center/cover no-repeat;
+  position:relative;
+}
+
+.cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.5));
 }
 
 /* ===== صندوق البروفايل ===== */
 .profile-box{
   max-width:900px;
-  margin:20px auto;
+  margin:-90px auto 20px;
   background:#fff;
   border-radius:20px;
   padding:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
   text-align:right;
+  position:relative;
+  z-index:2;
 }
 
 .profile-top{
@@ -52,11 +55,8 @@ body{
   width:140px;
   height:140px;
   border-radius:50%;
-  border:5px solid #fff;
+  border:6px solid #fff;
   object-fit:cover;
-  background-image:var(--profile-img);
-  background-size:cover;
-  background-position:center;
 }
 
 .profile-info{
@@ -71,66 +71,7 @@ body{
 
 .bio{
   color:#777;
-  margin-top:5px;
-}
-
-/* ===== البوستات ===== */
-.posts{
-  max-width:900px;
-  margin:30px auto;
-}
-
-.post{
-  background:#fff;
-  border-radius:18px;
-  padding:15px;
-  margin-bottom:20px;
-  box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.post-header{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.post-avatar{
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  background-image:var(--profile-img);
-  background-size:cover;
-  background-position:center;
-}
-
-.post-meta{
-  flex:1;
-}
-
-.post-name{
-  font-weight:700;
-  color:#333;
-}
-
-.post-time{
-  color:#888;
-  font-size:13px;
-}
-
-.post-text{
-  margin:10px 0;
-  line-height:1.7;
-  color:#444;
-}
-
-.post-img{
-  width:100%;
-  border-radius:15px;
-  margin-top:10px;
-  background-image:var(--profile-img);
-  background-size:cover;
-  background-position:center;
-  height:300px;
+  margin-top:6px;
 }
 
 /* ===== توثيق فيسبوك ===== */
@@ -157,6 +98,59 @@ body{
   transform:rotate(45deg);
 }
 
+/* ===== البوستات ===== */
+.posts{
+  max-width:900px;
+  margin:30px auto;
+}
+
+.post{
+  background:#fff;
+  border-radius:18px;
+  padding:15px;
+  margin-bottom:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.post-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.post-header img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.post-meta{
+  flex:1;
+}
+
+.post-name{
+  font-weight:700;
+  color:#333;
+}
+
+.post-time{
+  color:#888;
+  font-size:13px;
+}
+
+.post-text{
+  margin:10px 0;
+  line-height:1.7;
+  color:#444;
+}
+
+.post img.post-img{
+  width:100%;
+  border-radius:15px;
+  margin-top:10px;
+}
+
 /* ===== موبايل ===== */
 @media(max-width:768px){
   .profile-top{
@@ -175,7 +169,8 @@ body{
 <!-- البروفايل -->
 <div class="profile-box">
   <div class="profile-top">
-    <div class="avatar"></div>
+    <img id="profileAvatar" class="avatar"
+         src="https://img.alfrsantv.com/img/f176543888491621.png">
     <div class="profile-info">
       <div class="name">
         Ếᶇᶃƴ
@@ -189,10 +184,9 @@ body{
 <!-- البوستات -->
 <div class="posts">
 
-  <!-- بوست 1 -->
   <div class="post">
     <div class="post-header">
-      <div class="post-avatar"></div>
+      <img class="post-avatar">
       <div class="post-meta">
         <div class="post-name">Ếᶇᶃƴ</div>
         <div class="post-time">منذ ساعة</div>
@@ -203,10 +197,9 @@ body{
     </div>
   </div>
 
-  <!-- بوست 2 -->
   <div class="post">
     <div class="post-header">
-      <div class="post-avatar"></div>
+      <img class="post-avatar">
       <div class="post-meta">
         <div class="post-name">Ếᶇᶃƴ</div>
         <div class="post-time">أمس</div>
@@ -215,10 +208,18 @@ body{
     <div class="post-text">
       مزاجي اليوم 🌸
     </div>
-    <div class="post-img"></div>
+    <img class="post-img post-avatar">
   </div>
 
 </div>
+
+<!-- ربط صور البوستات تلقائي من صورة البروفايل -->
+<script>
+const avatarSrc = document.getElementById("profileAvatar").src;
+document.querySelectorAll(".post-avatar").forEach(img=>{
+  img.src = avatarSrc;
+});
+</script>
 
 </body>
 </html>
