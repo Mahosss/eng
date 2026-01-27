@@ -2,215 +2,209 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Engy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engy</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{
-  box-sizing:border-box;
-  font-family:'Cairo', sans-serif;
-}
-
-body{
   margin:0;
-  background:#f0f2f5;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Tajawal', sans-serif;
 }
 
-.cover{
-  height:260px;
-  background:url("https://img.alfrsantv.com/img/f176759891637631.jpg") center/cover no-repeat;
-  position:relative;
+/* Scrollbar */
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:#f1f1f1;}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#caa6ff,#ffb7d5);
+  border-radius:10px;
 }
 
-.cover::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.5));
-}
-
-.profile-box{
-  max-width:900px;
-  margin:-90px auto 20px;
-  background:#fff;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,.12);
-  text-align:right;
-  position:relative;
-  z-index:2;
-}
-
-.profile-top{
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-
-.avatar{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  border:6px solid #fff;
-  object-fit:cover;
-}
-
-.profile-info{
-  flex:1;
-}
-
-.name{
-  font-size:28px;
-  font-weight:700;
+/* Body */
+body{
+  background:linear-gradient(135deg,#f7f0ff,#fdeff6);
+  min-height:100vh;
   color:#333;
 }
 
-.bio{
-  color:#777;
+/* Header */
+.header{
+  height:260px;
+  background:linear-gradient(135deg,#caa6ff,#ffb7d5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.header h1{
+  color:#fff;
+  font-size:32px;
+  letter-spacing:2px;
+}
+
+/* Card */
+.card{
+  max-width:900px;
+  margin:-80px auto 40px;
+  background:rgba(255,255,255,.7);
+  backdrop-filter:blur(15px);
+  border-radius:24px;
+  padding:30px;
+  box-shadow:0 20px 50px rgba(0,0,0,.15);
+  text-align:center;
+}
+
+/* Avatar */
+.avatar{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  background:url('https://picsum.photos/300') center/cover no-repeat;
+  margin:-90px auto 15px;
+  border:6px solid #fff;
+  box-shadow:0 0 25px rgba(255,183,213,.8);
+}
+
+/* Name */
+.card h2{
+  font-size:26px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+}
+
+.card h2 i{
+  color:#ff7eb3;
+}
+
+.username{
+  color:#888;
   margin-top:6px;
 }
 
-.fb-verified{
-  display:inline-block;
-  width:18px;
-  height:18px;
-  margin-right:6px;
-  background:#1877f2;
-  border-radius:50%;
-  position:relative;
-  top:2px;
+/* Bio */
+.bio{
+  margin:15px auto 25px;
+  font-size:15px;
+  line-height:1.8;
+  max-width:500px;
+  color:#555;
 }
 
-.fb-verified::after{
-  content:"";
-  position:absolute;
-  left:5px;
-  top:3px;
-  width:4px;
-  height:8px;
-  border:solid #fff;
-  border-width:0 2px 2px 0;
-  transform:rotate(45deg);
-}
-
+/* Posts */
 .posts{
   max-width:900px;
-  margin:30px auto;
+  margin:0 auto 60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:22px;
+  padding:0 15px;
 }
 
 .post{
-  background:#fff;
-  border-radius:18px;
-  padding:15px;
-  margin-bottom:20px;
-  box-shadow:0 5px 15px rgba(0,0,0,.08);
+  background:rgba(255,255,255,.9);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  transition:.3s;
 }
 
-.post-header{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.post:hover{
+  transform:translateY(-6px);
 }
 
-.post-header img{
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  object-fit:cover;
-}
-
-.post-meta{
-  flex:1;
-}
-
-.post-name{
-  font-weight:700;
-  color:#333;
-}
-
-.post-time{
-  color:#888;
+.post span{
   font-size:13px;
+  color:#ff7eb3;
+  font-weight:600;
 }
 
-.post-text{
-  margin:10px 0;
+.post h3{
+  margin:8px 0;
+  font-size:18px;
+}
+
+.post p{
+  font-size:14px;
+  color:#555;
   line-height:1.7;
-  color:#444;
 }
 
-.post img.post-img{
-  width:100%;
-  border-radius:15px;
-  margin-top:10px;
+/* Footer */
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+  color:#777;
 }
 
-@media(max-width:768px){
-  .profile-top{
-    flex-direction:column;
-    text-align:center;
-  }
+footer span{
+  color:#ff7eb3;
+  font-weight:600;
+}
+
+footer a{
+  color:#333;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .header h1{font-size:26px;}
+  .avatar{width:110px;height:110px;}
 }
 </style>
 </head>
-
 <body>
 
-<div class="cover"></div>
+<div class="header">
+  <h1>Welcome</h1>
+</div>
 
-<div class="profile-box">
-  <div class="profile-top">
-    <img id="profileAvatar" class="avatar"
-         src="https://img.alfrsantv.com/img/f176543888491621.png">
-    <div class="profile-info">
-      <div class="name">
-        Ếᶇᶃƴ
-        <span class="fb-verified" title="حساب موثّق"></span>
-      </div>
-      <div class="bio">أحب الاكل، العصائر، والنوم 🎧💗</div>
-    </div>
+<div class="card">
+  <div class="avatar"></div>
+
+  <h2>•Engy• <i class="fas fa-check-circle"></i></h2>
+  <div class="username">@engy</div>
+
+  <div class="bio">
+    أحب البساطة، التفاصيل الهادئة، وكل ما يجعل الروح أخف ✨
   </div>
 </div>
 
 <div class="posts">
 
   <div class="post">
-    <div class="post-header">
-      <img class="post-avatar">
-      <div class="post-meta">
-        <div class="post-name">Ếᶇᶃƴ</div>
-        <div class="post-time">منذ ساعة</div>
-      </div>
-    </div>
-    <div class="post-text">
-      أحيانًا أبسط الأشياء هي اللي بتسعدنا أكتر 💭💗
-    </div>
+    <span>حالة</span>
+    <h3>مزاج اليوم</h3>
+    <p>هادئة… وكل شيء على ما يرام.</p>
   </div>
 
   <div class="post">
-    <div class="post-header">
-      <img class="post-avatar">
-      <div class="post-meta">
-        <div class="post-name">Ếᶇᶃƴ</div>
-        <div class="post-time">أمس</div>
-      </div>
-    </div>
-    <div class="post-text">
-      مزاجي اليوم 🌸
-    </div>
-    <img class="post-img post-avatar">
+    <span>تفكير</span>
+    <h3>القناعة</h3>
+    <p>أحيانًا الاكتفاء هو أعلى درجات الرفاهية.</p>
+  </div>
+
+  <div class="post">
+    <span>حياة</span>
+    <h3>الهدوء</h3>
+    <p>ليس كل صمت ضعف، أحيانًا هو سلام.</p>
   </div>
 
 </div>
 
-<script>
-const avatarSrc = document.getElementById("profileAvatar").src;
-document.querySelectorAll(".post-avatar").forEach(img=>{
-  img.src = avatarSrc;
-});
-</script>
+<footer>
+  <span>برمجة وتطوير</span>
+  <a href="https://xat.me/oOiiMahmoudiiOo" target="_blank">Mahmoud</a>
+</footer>
 
 </body>
 </html>
