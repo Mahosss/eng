@@ -6,7 +6,6 @@
 <title>Engy</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{
@@ -17,194 +16,140 @@
 }
 
 /* Scrollbar */
-::-webkit-scrollbar{width:8px;}
-::-webkit-scrollbar-track{background:#f1f1f1;}
+::-webkit-scrollbar{width:7px;}
 ::-webkit-scrollbar-thumb{
-  background:linear-gradient(180deg,#caa6ff,#ffb7d5);
+  background:linear-gradient(180deg,#ff9acb,#bfa7ff);
   border-radius:10px;
 }
+::-webkit-scrollbar-track{background:#0f0f16;}
 
-/* Body */
 body{
-  background:linear-gradient(135deg,#f7f0ff,#fdeff6);
   min-height:100vh;
-  color:#333;
-}
-
-/* Header */
-.header{
-  height:260px;
-  background:linear-gradient(135deg,#caa6ff,#ffb7d5);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-.header h1{
+  background:radial-gradient(circle at top left,#1a1a2e,#0f0f16 60%);
   color:#fff;
-  font-size:32px;
-  letter-spacing:2px;
+  overflow-x:hidden;
 }
 
-/* Card */
-.card{
+/* Animated background glow */
+.glow{
+  position:fixed;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle,#ff9acb55,transparent 70%);
+  filter:blur(80px);
+  top:-100px;
+  right:-100px;
+  animation:float 10s infinite alternate;
+  z-index:0;
+}
+@keyframes float{
+  from{transform:translateY(0);}
+  to{transform:translateY(80px);}
+}
+
+/* Container */
+.container{
+  position:relative;
+  z-index:2;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:40px 20px;
   max-width:900px;
-  margin:-80px auto 40px;
-  background:rgba(255,255,255,.7);
-  backdrop-filter:blur(15px);
-  border-radius:24px;
-  padding:30px;
-  box-shadow:0 20px 50px rgba(0,0,0,.15);
-  text-align:center;
-}
-
-/* Avatar */
-.avatar{
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  background:url('https://picsum.photos/300') center/cover no-repeat;
-  margin:-90px auto 15px;
-  border:6px solid #fff;
-  box-shadow:0 0 25px rgba(255,183,213,.8);
+  margin:auto;
 }
 
 /* Name */
-.card h2{
-  font-size:26px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
+.name{
+  font-size:42px;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-bottom:10px;
 }
 
-.card h2 i{
-  color:#ff7eb3;
-}
-
-.username{
-  color:#888;
-  margin-top:6px;
-}
-
-/* Bio */
-.bio{
-  margin:15px auto 25px;
-  font-size:15px;
-  line-height:1.8;
-  max-width:500px;
-  color:#555;
-}
-
-/* Posts */
-.posts{
-  max-width:900px;
-  margin:0 auto 60px;
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:22px;
-  padding:0 15px;
-}
-
-.post{
-  background:rgba(255,255,255,.9);
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
-  transition:.3s;
-}
-
-.post:hover{
-  transform:translateY(-6px);
-}
-
-.post span{
-  font-size:13px;
-  color:#ff7eb3;
-  font-weight:600;
-}
-
-.post h3{
-  margin:8px 0;
+/* Mood */
+.mood{
   font-size:18px;
+  color:#ff9acb;
+  margin-bottom:40px;
 }
 
-.post p{
-  font-size:14px;
-  color:#555;
-  line-height:1.7;
+/* Thoughts */
+.thought{
+  font-size:22px;
+  line-height:1.9;
+  margin-bottom:30px;
+  opacity:0;
+  transform:translateY(30px);
+  animation:reveal 1s forwards;
+}
+
+.thought:nth-child(3){animation-delay:.3s;}
+.thought:nth-child(4){animation-delay:.6s;}
+.thought:nth-child(5){animation-delay:.9s;}
+
+@keyframes reveal{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 /* Footer */
 footer{
-  text-align:center;
-  padding:20px;
+  margin-top:60px;
   font-size:14px;
-  color:#777;
+  color:#aaa;
 }
 
 footer span{
-  color:#ff7eb3;
-  font-weight:600;
+  color:#ff9acb;
 }
 
 footer a{
-  color:#333;
+  color:#fff;
   text-decoration:none;
-  font-weight:700;
+  border-bottom:1px dotted #ff9acb;
 }
 
 /* Mobile */
 @media(max-width:600px){
-  .header h1{font-size:26px;}
-  .avatar{width:110px;height:110px;}
+  .name{font-size:32px;}
+  .thought{font-size:18px;}
 }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>Welcome</h1>
-</div>
+<div class="glow"></div>
 
-<div class="card">
-  <div class="avatar"></div>
+<div class="container">
 
-  <h2>•Engy• <i class="fas fa-check-circle"></i></h2>
-  <div class="username">@engy</div>
+  <div class="name">Engy</div>
+  <div class="mood">مزاج اليوم: هادئة ✨</div>
 
-  <div class="bio">
-    أحب البساطة، التفاصيل الهادئة، وكل ما يجعل الروح أخف ✨
-  </div>
-</div>
-
-<div class="posts">
-
-  <div class="post">
-    <span>حالة</span>
-    <h3>مزاج اليوم</h3>
-    <p>هادئة… وكل شيء على ما يرام.</p>
+  <div class="thought">
+    أحيانًا لا أحتاج أن أتكلم…  
+    يكفيني أن أشعر.
   </div>
 
-  <div class="post">
-    <span>تفكير</span>
-    <h3>القناعة</h3>
-    <p>أحيانًا الاكتفاء هو أعلى درجات الرفاهية.</p>
+  <div class="thought">
+    الهدوء ليس فراغًا،  
+    بل امتلاء لا يُشرح.
   </div>
 
-  <div class="post">
-    <span>حياة</span>
-    <h3>الهدوء</h3>
-    <p>ليس كل صمت ضعف، أحيانًا هو سلام.</p>
+  <div class="thought">
+    أنا بخير،  
+    حتى لو لم يبدو ذلك واضحًا.
   </div>
+
+  <footer>
+    <span>برمجة وتطوير</span>
+    <a href="https://xat.me/oOiiMahmoudiiOo" target="_blank">Mahmoud</a>
+  </footer>
 
 </div>
-
-<footer>
-  <span>برمجة وتطوير</span>
-  <a href="https://xat.me/oOiiMahmoudiiOo" target="_blank">Mahmoud</a>
-</footer>
 
 </body>
 </html>
