@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noha</title>
+<title>Melody</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -15,129 +15,136 @@
   font-family:'Tajawal', sans-serif;
 }
 
+body{
+  background:#f6f4f8;
+  color:#333;
+}
+
 /* Scroll */
 ::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-thumb{
-  background:linear-gradient(180deg,#f2a7c6,#c8b6ff);
+  background:linear-gradient(#f2a7c6,#c8b6ff);
   border-radius:10px;
 }
-::-webkit-scrollbar-track{background:#faf7fb;}
+::-webkit-scrollbar-track{background:#eee;}
 
-body{
-  min-height:100vh;
-  background:radial-gradient(circle at top,#fff,#f7f1f6 70%);
-  color:#333;
+/* Card */
+.card{
+  max-width:420px;
+  margin:30px auto;
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
 }
 
-/* Soft glow */
-.glow{
-  position:fixed;
-  width:350px;
-  height:350px;
-  background:radial-gradient(circle,#f2a7c655,transparent 70%);
-  filter:blur(90px);
-  top:-120px;
-  left:-120px;
-  z-index:0;
-}
-
-/* Main */
-.main{
+/* Cover */
+.cover{
+  height:200px;
+  background:url("https://i.imgur.com/8QfQ9ZL.jpg") center/cover no-repeat;
   position:relative;
-  z-index:2;
-  max-width:800px;
-  margin:auto;
-  padding:80px 20px 60px;
 }
 
-/* Name */
+/* Avatar */
+.avatar{
+  position:absolute;
+  bottom:-55px;
+  left:50%;
+  transform:translateX(-50%);
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:url("https://i.imgur.com/2yaf2wb.jpg") center/cover no-repeat;
+  border:6px solid #fff;
+  box-shadow:0 0 30px rgba(242,167,198,.8);
+}
+
+/* Content */
+.content{
+  padding:80px 25px 30px;
+  text-align:center;
+}
+
 .name{
-  font-size:40px;
-  font-weight:600;
-  letter-spacing:2px;
-  margin-bottom:10px;
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:6px;
 }
 
-/* Subtitle */
-.subtitle{
-  font-size:16px;
+.bio{
   color:#b48ead;
-  margin-bottom:50px;
-}
-
-/* Lines */
-.line{
-  font-size:22px;
-  line-height:2;
-  margin-bottom:35px;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1s forwards;
-}
-
-.line:nth-child(3){animation-delay:.3s;}
-.line:nth-child(4){animation-delay:.6s;}
-.line:nth-child(5){animation-delay:.9s;}
-
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* Footer */
-footer{
-  margin-top:70px;
   font-size:14px;
-  color:#999;
+  margin-bottom:30px;
 }
 
-footer span{
-  color:#f2a7c6;
+/* Info */
+.info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
 }
 
-footer a{
-  color:#333;
+.box{
+  background:#faf7fb;
+  padding:14px;
+  border-radius:16px;
+  font-size:14px;
+}
+
+.box i{
+  display:block;
+  font-style:normal;
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+/* Link style */
+a{
+  color:inherit;
   text-decoration:none;
-  border-bottom:1px dotted #f2a7c6;
+}
+a:hover{
+  text-decoration:underline;
 }
 
 /* Mobile */
-@media(max-width:600px){
-  .name{font-size:30px;}
-  .line{font-size:18px;}
+@media(max-width:480px){
+  .card{margin:15px;}
 }
 </style>
 </head>
 <body>
 
-<div class="glow"></div>
+<div class="card">
 
-<div class="main">
-
-  <div class="name">Noha</div>
-  <div class="subtitle">أنا بخير… بطريقتي 🌷</div>
-
-  <div class="line">
-    لا أحب الضجيج،  
-    أحب كل ما يشبه السلام.
+  <div class="cover">
+    <div class="avatar"></div>
   </div>
 
-  <div class="line">
-    أنثى هادئة،  
-    لكن قلبي يعرف كيف يكون قويًا.
-  </div>
+  <div class="content">
+    <div class="name">Melody</div>
+    <div class="bio">أنثى هادئة بطابع مميز 🌸</div>
 
-  <div class="line">
-    أختار نفسي دائمًا،  
-    حتى في أبسط التفاصيل.
+    <div class="info">
+      <div class="box">
+        <i>😊</i>
+        المزاج: جيد
+      </div>
+      <div class="box">
+        <i>📖</i>
+        الهواية: قراءة
+      </div>
+      <div class="box">
+        <i>🎨</i>
+        اللون: لبني
+      </div>
+      <div class="box">
+        <i>💬</i>
+        دردشتي:
+        <a href="https://xat.me/melody" target="_blank">ميلودى</a>
+      </div>
+    </div>
   </div>
-
-  <footer>
-    <span>برمجة وتطوير</span>
-    <a href="https://xat.me/oOiiMahmoudiiOo" target="_blank">Mahmoud</a>
-  </footer>
 
 </div>
 
