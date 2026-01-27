@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Engy</title>
+<title>Noha</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -15,81 +15,71 @@
   font-family:'Tajawal', sans-serif;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar{width:7px;}
+/* Scroll */
+::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-thumb{
-  background:linear-gradient(180deg,#ff9acb,#bfa7ff);
+  background:linear-gradient(180deg,#f2a7c6,#c8b6ff);
   border-radius:10px;
 }
-::-webkit-scrollbar-track{background:#0f0f16;}
+::-webkit-scrollbar-track{background:#faf7fb;}
 
 body{
   min-height:100vh;
-  background:radial-gradient(circle at top left,#1a1a2e,#0f0f16 60%);
-  color:#fff;
-  overflow-x:hidden;
+  background:radial-gradient(circle at top,#fff,#f7f1f6 70%);
+  color:#333;
 }
 
-/* Animated background glow */
+/* Soft glow */
 .glow{
   position:fixed;
-  width:400px;
-  height:400px;
-  background:radial-gradient(circle,#ff9acb55,transparent 70%);
-  filter:blur(80px);
-  top:-100px;
-  right:-100px;
-  animation:float 10s infinite alternate;
+  width:350px;
+  height:350px;
+  background:radial-gradient(circle,#f2a7c655,transparent 70%);
+  filter:blur(90px);
+  top:-120px;
+  left:-120px;
   z-index:0;
 }
-@keyframes float{
-  from{transform:translateY(0);}
-  to{transform:translateY(80px);}
-}
 
-/* Container */
-.container{
+/* Main */
+.main{
   position:relative;
   z-index:2;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:40px 20px;
-  max-width:900px;
+  max-width:800px;
   margin:auto;
+  padding:80px 20px 60px;
 }
 
 /* Name */
 .name{
-  font-size:42px;
-  font-weight:700;
+  font-size:40px;
+  font-weight:600;
   letter-spacing:2px;
   margin-bottom:10px;
 }
 
-/* Mood */
-.mood{
-  font-size:18px;
-  color:#ff9acb;
-  margin-bottom:40px;
+/* Subtitle */
+.subtitle{
+  font-size:16px;
+  color:#b48ead;
+  margin-bottom:50px;
 }
 
-/* Thoughts */
-.thought{
+/* Lines */
+.line{
   font-size:22px;
-  line-height:1.9;
-  margin-bottom:30px;
+  line-height:2;
+  margin-bottom:35px;
   opacity:0;
   transform:translateY(30px);
-  animation:reveal 1s forwards;
+  animation:fadeUp 1s forwards;
 }
 
-.thought:nth-child(3){animation-delay:.3s;}
-.thought:nth-child(4){animation-delay:.6s;}
-.thought:nth-child(5){animation-delay:.9s;}
+.line:nth-child(3){animation-delay:.3s;}
+.line:nth-child(4){animation-delay:.6s;}
+.line:nth-child(5){animation-delay:.9s;}
 
-@keyframes reveal{
+@keyframes fadeUp{
   to{
     opacity:1;
     transform:translateY(0);
@@ -98,25 +88,25 @@ body{
 
 /* Footer */
 footer{
-  margin-top:60px;
+  margin-top:70px;
   font-size:14px;
-  color:#aaa;
+  color:#999;
 }
 
 footer span{
-  color:#ff9acb;
+  color:#f2a7c6;
 }
 
 footer a{
-  color:#fff;
+  color:#333;
   text-decoration:none;
-  border-bottom:1px dotted #ff9acb;
+  border-bottom:1px dotted #f2a7c6;
 }
 
 /* Mobile */
 @media(max-width:600px){
-  .name{font-size:32px;}
-  .thought{font-size:18px;}
+  .name{font-size:30px;}
+  .line{font-size:18px;}
 }
 </style>
 </head>
@@ -124,24 +114,24 @@ footer a{
 
 <div class="glow"></div>
 
-<div class="container">
+<div class="main">
 
-  <div class="name">Engy</div>
-  <div class="mood">مزاج اليوم: هادئة ✨</div>
+  <div class="name">Noha</div>
+  <div class="subtitle">أنا بخير… بطريقتي 🌷</div>
 
-  <div class="thought">
-    أحيانًا لا أحتاج أن أتكلم…  
-    يكفيني أن أشعر.
+  <div class="line">
+    لا أحب الضجيج،  
+    أحب كل ما يشبه السلام.
   </div>
 
-  <div class="thought">
-    الهدوء ليس فراغًا،  
-    بل امتلاء لا يُشرح.
+  <div class="line">
+    أنثى هادئة،  
+    لكن قلبي يعرف كيف يكون قويًا.
   </div>
 
-  <div class="thought">
-    أنا بخير،  
-    حتى لو لم يبدو ذلك واضحًا.
+  <div class="line">
+    أختار نفسي دائمًا،  
+    حتى في أبسط التفاصيل.
   </div>
 
   <footer>
