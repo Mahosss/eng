@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Engy Profile</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
 
 <style>
 :root{
---plate-color:#ffffff;   /* غيري اللون ده لأي لون تحبيه */
+--plate-color:#ffffff; /* غيري اللون هنا */
 }
 
 *{
@@ -27,194 +27,70 @@ align-items:center;
 min-height:100vh;
 }
 
-.container{
-width:390px;
+.card{
+width:400px;
 background:#f3d8cc;
 border-radius:35px;
-padding:25px;
+padding:30px 20px 100px;
 box-shadow:0 25px 50px rgba(0,0,0,.15);
 text-align:center;
 position:relative;
 overflow:hidden;
 }
 
-/* ================= */
-/* الدبدوب */
-.bear-wrapper{
-position:relative;
-width:260px;
-margin:0 auto 40px;
-}
-
-.bear{
-width:260px;
-height:220px;
-background:radial-gradient(circle at 40% 30%, #9b6a5f, #7d4f45);
-border-radius:140px 140px 110px 110px;
+/* صورة الدبدوب */
+.bear-img{
+width:300px;
 position:relative;
 z-index:3;
-box-shadow:
-inset -15px -15px 25px rgba(0,0,0,.25),
-inset 10px 10px 25px rgba(255,255,255,.1);
 }
 
-.ear{
-width:85px;
-height:85px;
-background:radial-gradient(circle,#9b6a5f,#7d4f45);
-border-radius:50%;
+/* اللوح تحت */
+.plate{
 position:absolute;
-top:-35px;
-}
-
-.ear.left{left:-15px;}
-.ear.right{right:-15px;}
-
-.eye{
-width:16px;
-height:16px;
-background:#111;
-border-radius:50%;
-position:absolute;
-top:95px;
-}
-
-.eye.left{left:85px;}
-.eye.right{right:85px;}
-
-.cheek{
-width:55px;
-height:55px;
-background:radial-gradient(circle,#f48b8b,#d35c5c);
-border-radius:50%;
-position:absolute;
-top:110px;
-opacity:.95;
-}
-
-.cheek.left{left:45px;}
-.cheek.right{right:45px;}
-
-.snout{
-width:110px;
-height:85px;
-background:radial-gradient(circle,#d8b2a3,#c79c8d);
-border-radius:50px;
-position:absolute;
-top:110px;
+bottom:40px;
 left:50%;
 transform:translateX(-50%);
-}
-
-.nose{
-width:25px;
-height:18px;
-background:#5c3a32;
-border-radius:50%;
-margin:25px auto 0;
-}
-
-/* ايدين الدبدوب */
-.hand{
-width:70px;
-height:70px;
-background:radial-gradient(circle,#9b6a5f,#7d4f45);
-border-radius:50%;
-position:absolute;
-bottom:-25px;
-z-index:5;
-box-shadow:inset -8px -8px 15px rgba(0,0,0,.2);
-}
-
-.hand.left{left:20px;}
-.hand.right{right:20px;}
-
-/* اللوح الأبيض */
-.plate{
-width:100%;
-height:90px;
+width:320px;
+height:100px;
 background:var(--plate-color);
-border-radius:40px;
-position:absolute;
-bottom:-45px;
-left:0;
-z-index:2;
+border-radius:50px;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:32px;
-font-weight:700;
+font-size:36px;
+font-weight:bold;
 color:#6a463d;
-box-shadow:0 10px 20px rgba(0,0,0,.15);
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+z-index:2;
 }
 
-/* تأثير كريمة فوق اللوح */
-.plate::before{
-content:"";
-position:absolute;
-top:-25px;
-left:0;
-width:100%;
-height:40px;
-background:var(--plate-color);
-border-radius:0 0 40px 40px;
-}
-
-/* ================= */
-/* الساعة الرقمية */
+/* الساعة */
 .time{
+margin-top:20px;
 font-size:48px;
-font-weight:700;
 color:#6a463d;
-margin-top:80px;
-}
-
-.date{
-color:#6a463d;
-opacity:.8;
-margin-bottom:15px;
+font-weight:bold;
 }
 </style>
 </head>
 <body>
 
-<div class="container">
+<div class="card">
 
-<div class="bear-wrapper">
-<div class="bear">
-<div class="ear left"></div>
-<div class="ear right"></div>
-<div class="cheek left"></div>
-<div class="cheek right"></div>
-<div class="eye left"></div>
-<div class="eye right"></div>
-<div class="snout">
-<div class="nose"></div>
-</div>
-
-<div class="hand left"></div>
-<div class="hand right"></div>
+<img src="bear.png" class="bear-img">
 
 <div class="plate">Engy</div>
-</div>
-</div>
 
-<div class="time" id="digitalClock"></div>
-<div class="date" id="date"></div>
+<div class="time" id="clock"></div>
 
 </div>
 
 <script>
 function updateClock(){
 const now=new Date();
-const h=now.getHours();
-const m=now.getMinutes();
-
-document.getElementById("digitalClock").innerHTML=
-String(h).padStart(2,'0')+":"+String(m).padStart(2,'0');
-
-document.getElementById("date").innerHTML=
-now.toLocaleDateString("ar-EG",{weekday:"long",day:"numeric",month:"numeric"});
+document.getElementById("clock").innerHTML=
+now.toLocaleTimeString("ar-EG",{hour:"2-digit",minute:"2-digit"});
 }
 setInterval(updateClock,1000);
 updateClock();
