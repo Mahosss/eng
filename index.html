@@ -1,1 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear Profile</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+background:linear-gradient(to bottom,#e9cfc4,#e4c1b6);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.container{
+width:390px;
+background:#f2d8cc;
+border-radius:35px;
+padding:25px;
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+/* خطوط خلفية */
+.container::before{
+content:"";
+position:absolute;
+inset:0;
+background:repeating-linear-gradient(
+to right,
+rgba(255,255,255,0.2) 0px,
+rgba(255,255,255,0.2) 6px,
+transparent 6px,
+transparent 60px
+);
+opacity:.4;
+}
+
+/* الدب */
+.bear{
+width:220px;
+height:180px;
+background:#8b5e52;
+margin:0 auto;
+border-radius:120px 120px 90px 90px;
+position:relative;
+box-shadow:inset -10px -10px 20px rgba(0,0,0,.2),
+inset 10px 10px 20px rgba(255,255,255,.1);
+}
+
+.ear{
+width:70px;
+height:70px;
+background:#8b5e52;
+border-radius:50%;
+position:absolute;
+top:-25px;
+}
+
+.ear.left{left:-10px;}
+.ear.right{right:-10px;}
+
+.face{
+position:absolute;
+top:60px;
+left:50%;
+transform:translateX(-50%);
+width:120px;
+height:80px;
+background:#c79c8d;
+border-radius:50px;
+}
+
+.eye{
+width:12px;
+height:12px;
+background:#000;
+border-radius:50%;
+position:absolute;
+top:80px;
+}
+
+.eye.left{left:90px;}
+.eye.right{right:90px;}
+
+.nose{
+width:20px;
+height:15px;
+background:#5c3a32;
+border-radius:50%;
+position:absolute;
+top:100px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.bow{
+width:60px;
+height:30px;
+background:#d79b95;
+border-radius:20px;
+margin:15px auto;
+}
+
+/* الساعة الرقمية */
+.time{
+font-size:48px;
+font-weight:700;
+color:#6a463d;
+margin-top:20px;
+}
+
+.date{
+color:#6a463d;
+opacity:.8;
+margin-bottom:20px;
+}
+
+/* الساعة الدائرية */
+.clock{
+width:120px;
+height:120px;
+background:#f6e6dc;
+border-radius:50%;
+margin:15px auto;
+position:relative;
+box-shadow:inset -6px -6px 15px rgba(0,0,0,.15),
+inset 6px 6px 15px rgba(255,255,255,.6);
+}
+
+.hand{
+position:absolute;
+bottom:50%;
+left:50%;
+transform-origin:bottom;
+background:#8b5e52;
+}
+
+.hour{
+width:6px;
+height:30px;
+}
+
+.minute{
+width:4px;
+height:45px;
+}
+
+.second{
+width:2px;
+height:50px;
+background:#d79b95;
+}
+
+/* أيقونات */
+.icons{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+}
+
+.icon{
+width:60px;
+height:60px;
+background:#8b5e52;
+border-radius:18px;
+box-shadow:inset -5px -5px 12px rgba(0,0,0,.2),
+inset 5px 5px 12px rgba(255,255,255,.15);
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:20px;
+cursor:pointer;
+transition:.3s;
+}
+
+.icon:hover{
+transform:translateY(-5px);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="bear">
+<div class="ear left"></div>
+<div class="ear right"></div>
+<div class="face"></div>
+<div class="eye left"></div>
+<div class="eye right"></div>
+<div class="nose"></div>
+</div>
+
+<div class="bow"></div>
+
+<div class="time" id="digitalClock"></div>
+<div class="date" id="date"></div>
+
+<div class="clock">
+<div class="hand hour" id="hour"></div>
+<div class="hand minute" id="minute"></div>
+<div class="hand second" id="second"></div>
+</div>
+
+<div class="icons">
+<div class="icon">🐻</div>
+<div class="icon">🍓</div>
+<div class="icon">❤️</div>
+<div class="icon">⭐</div>
+</div>
+
+</div>
+
+<script>
+function updateClock(){
+const now=new Date();
+const h=now.getHours();
+const m=now.getMinutes();
+const s=now.getSeconds();
+
+document.getElementById("digitalClock").innerHTML=
+String(h).padStart(2,'0')+":"+String(m).padStart(2,'0');
+
+document.getElementById("date").innerHTML=
+now.toLocaleDateString("ar-EG",{weekday:"long",day:"numeric",month:"numeric"});
+
+document.getElementById("hour").style.transform=
+"translateX(-50%) rotate("+(h*30+m/2)+"deg)";
+document.getElementById("minute").style.transform=
+"translateX(-50%) rotate("+(m*6)+"deg)";
+document.getElementById("second").style.transform=
+"translateX(-50%) rotate("+(s*6)+"deg)";
+}
+setInterval(updateClock,1000);
+updateClock();
+</script>
+
+</body>
+</html>
