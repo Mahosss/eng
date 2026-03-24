@@ -3,62 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>engy</title>
+<title>Bear UI</title>
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: "Cairo", sans-serif;
+  font-family: Arial;
 }
 
 body{
-  background:#f3d7c8;
+  background:#e8c7b7;
   display:flex;
   justify-content:center;
   align-items:center;
   height:100vh;
 }
 
-/* Container */
-.container{
+/* container */
+.app{
   width:350px;
+  background:#e8c7b7;
   padding:20px;
-  text-align:center;
+  border-radius:25px;
 }
 
-/* Bear Image */
+/* bear */
 .bear{
   width:100%;
   border-radius:20px;
-  box-shadow: 10px 10px 20px #d1b2a3,
-              -10px -10px 20px #ffffff;
 }
 
-/* Time */
+/* cream */
+.cream{
+  background:#fff;
+  height:60px;
+  border-radius:30px 30px 20px 20px;
+  margin-top:-20px;
+  box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* time */
 .time{
   font-size:40px;
   font-weight:bold;
+  color:#5b3b2f;
+  text-align:center;
   margin-top:10px;
-  color:#6b4c3b;
 }
 
 .date{
-  color:#6b4c3b;
-  margin-bottom:15px;
+  text-align:center;
+  color:#5b3b2f;
 }
 
-/* Clock */
+/* clock */
 .clock{
-  width:120px;
-  height:120px;
+  width:130px;
+  height:130px;
   border-radius:50%;
-  margin:15px auto;
-  position:relative;
+  margin:20px auto;
   background:#f3d7c8;
-  box-shadow: inset 5px 5px 10px #d1b2a3,
-              inset -5px -5px 10px #ffffff;
+  box-shadow: 8px 8px 15px #caa999,
+              -8px -8px 15px #fff;
+  position:relative;
 }
 
 .hand{
@@ -66,108 +75,88 @@ body{
   bottom:50%;
   left:50%;
   transform-origin:bottom;
-  background:#6b4c3b;
+  background:#5b3b2f;
 }
 
-.hour{
-  width:5px;
-  height:30px;
-}
+.hour{width:5px;height:30px;}
+.min{width:3px;height:40px;}
+.sec{width:2px;height:50px;background:red;}
 
-.min{
-  width:3px;
-  height:40px;
-}
-
-.sec{
-  width:2px;
-  height:50px;
-  background:#ff6b6b;
-}
-
-/* Buttons */
-.buttons{
+/* cards */
+.cards{
   display:flex;
-  justify-content:space-around;
-  margin-top:20px;
+  justify-content:space-between;
+  margin-top:10px;
 }
 
-.btn{
+.card{
   width:60px;
   height:60px;
   border-radius:15px;
   background:#f3d7c8;
-  box-shadow: 5px 5px 10px #d1b2a3,
-              -5px -5px 10px #ffffff;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:20px;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.btn:active{
-  box-shadow: inset 5px 5px 10px #d1b2a3,
-              inset -5px -5px 10px #ffffff;
+  font-size:22px;
+  box-shadow: 5px 5px 10px #caa999,
+              -5px -5px 10px #fff;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
-  <!-- Bear Image -->
-  <img src="https://s.widget-club.com/images/YyiR86zpwIMIfrCZoSs4ulVD9RF3/221fd6c66b90bd74f3f8d31e97046ef0/e1e10d2985b02836950de73e08cd7caf.jpg?q=70&w=768" class="bear">
+  <!-- bear -->
+  <img src="bear.jpg" class="bear">
 
-  <!-- Time -->
+  <div class="cream"></div>
+
+  <!-- time -->
   <div class="time" id="time">00:00</div>
-  <div class="date" id="date">---</div>
+  <div class="date" id="date"></div>
 
-  <!-- Clock -->
+  <!-- clock -->
   <div class="clock">
-    <div class="hand hour" id="hour"></div>
-    <div class="hand min" id="min"></div>
-    <div class="hand sec" id="sec"></div>
+    <div class="hand hour" id="h"></div>
+    <div class="hand min" id="m"></div>
+    <div class="hand sec" id="s"></div>
   </div>
 
-  <!-- Buttons -->
-  <div class="buttons">
-    <div class="btn">🐻</div>
-    <div class="btn">🍓</div>
-    <div class="btn">🎀</div>
-    <div class="btn">❤️</div>
+  <!-- icons -->
+  <div class="cards">
+    <div class="card">🐻</div>
+    <div class="card">🍓</div>
+    <div class="card">🎀</div>
+    <div class="card">❤️</div>
   </div>
 
 </div>
 
 <script>
-function updateClock(){
-  let now = new Date();
+function update(){
+  let d=new Date();
 
-  let h = now.getHours();
-  let m = now.getMinutes();
-  let s = now.getSeconds();
+  let h=d.getHours();
+  let m=d.getMinutes();
+  let s=d.getSeconds();
 
   document.getElementById("time").innerText =
-    String(h).padStart(2,'0') + ":" + String(m).padStart(2,'0');
+    String(h).padStart(2,'0')+":"+String(m).padStart(2,'0');
 
-  document.getElementById("date").innerText =
-    now.toDateString();
+  document.getElementById("date").innerText = d.toDateString();
 
-  document.getElementById("hour").style.transform =
-    "rotate(" + (h*30 + m/2) + "deg)";
-
-  document.getElementById("min").style.transform =
-    "rotate(" + (m*6) + "deg)";
-
-  document.getElementById("sec").style.transform =
-    "rotate(" + (s*6) + "deg)";
+  document.getElementById("h").style.transform =
+    "rotate("+(h*30+m/2)+"deg)";
+  document.getElementById("m").style.transform =
+    "rotate("+(m*6)+"deg)";
+  document.getElementById("s").style.transform =
+    "rotate("+(s*6)+"deg)";
 }
 
-setInterval(updateClock,1000);
-updateClock();
+setInterval(update,1000);
+update();
 </script>
 
 </body>
