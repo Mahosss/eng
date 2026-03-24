@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Bear Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
-    font-family: Arial;
-    background: #f4d6c8;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(#f8e1d8, #f4d6c8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,80 +19,127 @@ body {
 
 /* الكارد */
 .card {
-    width: 320px;
-    background: #f6d8cb;
+    width: 340px;
+    padding: 25px;
     border-radius: 30px;
-    padding: 20px;
+    background: #f6d8cb;
+    box-shadow: 12px 12px 25px #e0bfb1,
+                -12px -12px 25px #fff2ea;
     text-align: center;
-    box-shadow: 10px 10px 20px #e0bfb1,
-                -10px -10px 20px #fff2ea;
 }
 
-/* صورة الدب */
+/* الدب */
 .bear {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 160px;
     background: #7b5e57;
-    border-radius: 50%;
+    border-radius: 100px 100px 80px 80px;
     margin: auto;
     position: relative;
-    box-shadow: inset 5px 5px 10px #6a4f49,
-                inset -5px -5px 10px #8c6d65;
+    box-shadow: inset 6px 6px 12px #6a4f49,
+                inset -6px -6px 12px #8c6d65;
 }
 
-/* العيون */
+/* ودان */
+.ear {
+    width: 50px;
+    height: 50px;
+    background: #7b5e57;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+}
+.ear.left { left: 20px; }
+.ear.right { right: 20px; }
+
+/* عيون */
 .eye {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background: black;
     border-radius: 50%;
     position: absolute;
     top: 70px;
+    animation: blink 4s infinite;
+}
+.eye.left { left: 60px; }
+.eye.right { right: 60px; }
+
+/* رمش بسيط */
+@keyframes blink {
+    0%, 90%, 100% { height: 12px; }
+    95% { height: 2px; }
 }
 
-.eye.left { left: 50px; }
-.eye.right { right: 50px; }
-
-/* الأنف */
-.nose {
+/* خدود */
+.cheek {
     width: 30px;
     height: 30px;
-    background: #d9b1a5;
+    background: #d88c8c;
     border-radius: 50%;
     position: absolute;
-    top: 80px;
+    top: 90px;
+}
+.cheek.left { left: 30px; }
+.cheek.right { right: 30px; }
+
+/* أنف */
+.nose {
+    width: 35px;
+    height: 35px;
+    background: #e7c1b5;
+    border-radius: 50%;
+    position: absolute;
+    top: 85px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 /* الوقت */
 .time {
-    font-size: 40px;
-    font-weight: bold;
-    margin-top: 15px;
+    font-size: 42px;
+    font-weight: 600;
+    margin-top: 20px;
     color: #6b4c45;
 }
 
 /* التاريخ */
 .date {
-    color: #8c6d65;
     margin-top: 5px;
+    color: #8c6d65;
 }
 
 /* الأزرار */
 .buttons {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .btn {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
+    border-radius: 18px;
     background: #7b5e57;
+    box-shadow: 6px 6px 12px #6a4f49,
+                -6px -6px 12px #8c6d65;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* شريط تحت */
+.footer {
+    margin-top: 20px;
+    padding: 10px;
     border-radius: 15px;
-    box-shadow: 5px 5px 10px #6a4f49,
-                -5px -5px 10px #8c6d65;
+    background: #7b5e57;
+    color: white;
+    font-size: 14px;
+    box-shadow: inset 3px 3px 6px #6a4f49,
+                inset -3px -3px 6px #8c6d65;
 }
 </style>
 </head>
@@ -99,13 +149,20 @@ body {
 <div class="card">
 
     <div class="bear">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+
         <div class="eye left"></div>
         <div class="eye right"></div>
+
+        <div class="cheek left"></div>
+        <div class="cheek right"></div>
+
         <div class="nose"></div>
     </div>
 
-    <div class="time">05:20</div>
-    <div class="date">08 / 08 - Wed</div>
+    <div class="time" id="time">00:00</div>
+    <div class="date" id="date">---</div>
 
     <div class="buttons">
         <div class="btn"></div>
@@ -114,7 +171,32 @@ body {
         <div class="btn"></div>
     </div>
 
+    <div class="footer">
+        Yummy 🍰
+    </div>
+
 </div>
+
+<script>
+function updateTime() {
+    const now = new Date();
+
+    let h = now.getHours().toString().padStart(2, '0');
+    let m = now.getMinutes().toString().padStart(2, '0');
+
+    document.getElementById("time").innerText = h + ":" + m;
+
+    const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    let day = days[now.getDay()];
+    let date = now.getDate().toString().padStart(2, '0');
+    let month = (now.getMonth()+1).toString().padStart(2, '0');
+
+    document.getElementById("date").innerText = `${date}/${month} - ${day}`;
+}
+
+setInterval(updateTime, 1000);
+updateTime();
+</script>
 
 </body>
 </html>
