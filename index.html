@@ -2,188 +2,119 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bear UI</title>
-
+<title>Bear Profile</title>
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: "Cairo", sans-serif;
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4d6c8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-body{
-  background:#e7c6b6;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+/* الكارد */
+.card {
+    width: 320px;
+    background: #f6d8cb;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 10px 10px 20px #e0bfb1,
+                -10px -10px 20px #fff2ea;
 }
 
-/* App */
-.app{
-  width:360px;
-  padding:15px;
+/* صورة الدب */
+.bear {
+    width: 180px;
+    height: 180px;
+    background: #7b5e57;
+    border-radius: 50%;
+    margin: auto;
+    position: relative;
+    box-shadow: inset 5px 5px 10px #6a4f49,
+                inset -5px -5px 10px #8c6d65;
 }
 
-/* Bear */
-.bear-box{
-  position:relative;
-  text-align:center;
+/* العيون */
+.eye {
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
 }
 
-.bear{
-  width:100%;
-  border-radius:25px;
+.eye.left { left: 50px; }
+.eye.right { right: 50px; }
+
+/* الأنف */
+.nose {
+    width: 30px;
+    height: 30px;
+    background: #d9b1a5;
+    border-radius: 50%;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* Cream Layer */
-.cream{
-  background:#fff;
-  height:70px;
-  border-radius:40px 40px 20px 20px;
-  margin-top:-30px;
-  box-shadow:0 -5px 10px rgba(0,0,0,0.08);
+/* الوقت */
+.time {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #6b4c45;
 }
 
-/* Time */
-.time{
-  text-align:center;
-  font-size:42px;
-  font-weight:bold;
-  color:#5a3c30;
-  margin-top:10px;
+/* التاريخ */
+.date {
+    color: #8c6d65;
+    margin-top: 5px;
 }
 
-.date{
-  text-align:center;
-  color:#5a3c30;
+/* الأزرار */
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
 }
 
-/* Clock */
-.clock{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  margin:20px auto;
-  background:#f1d3c4;
-  box-shadow: 10px 10px 20px #c8a799,
-              -10px -10px 20px #fff;
-  position:relative;
-}
-
-.hand{
-  position:absolute;
-  bottom:50%;
-  left:50%;
-  transform-origin:bottom;
-  background:#5a3c30;
-  border-radius:10px;
-}
-
-.hour{width:6px;height:35px;}
-.min{width:4px;height:50px;}
-.sec{width:2px;height:60px;background:#ff5c5c;}
-
-/* center dot */
-.clock::after{
-  content:'';
-  width:10px;
-  height:10px;
-  background:#5a3c30;
-  border-radius:50%;
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-}
-
-/* Cards */
-.cards{
-  display:flex;
-  justify-content:space-between;
-  margin-top:10px;
-}
-
-.card{
-  width:65px;
-  height:65px;
-  border-radius:18px;
-  background:#f1d3c4;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:22px;
-  box-shadow: 6px 6px 12px #c8a799,
-              -6px -6px 12px #fff;
-  transition:.2s;
-}
-
-.card:active{
-  box-shadow: inset 5px 5px 10px #c8a799,
-              inset -5px -5px 10px #fff;
+.btn {
+    width: 50px;
+    height: 50px;
+    background: #7b5e57;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px #6a4f49,
+                -5px -5px 10px #8c6d65;
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="card">
 
-  <!-- Bear -->
-  <div class="bear-box">
-    <img src="bear.jpg" class="bear">
-  </div>
+    <div class="bear">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="nose"></div>
+    </div>
 
-  <!-- Cream -->
-  <div class="cream"></div>
+    <div class="time">05:20</div>
+    <div class="date">08 / 08 - Wed</div>
 
-  <!-- Time -->
-  <div class="time" id="time">00:00</div>
-  <div class="date" id="date"></div>
-
-  <!-- Clock -->
-  <div class="clock">
-    <div class="hand hour" id="h"></div>
-    <div class="hand min" id="m"></div>
-    <div class="hand sec" id="s"></div>
-  </div>
-
-  <!-- Cards -->
-  <div class="cards">
-    <div class="card">🐻</div>
-    <div class="card">🍓</div>
-    <div class="card">🎀</div>
-    <div class="card">❤️</div>
-  </div>
+    <div class="buttons">
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+    </div>
 
 </div>
-
-<script>
-function update(){
-  let d=new Date();
-
-  let h=d.getHours();
-  let m=d.getMinutes();
-  let s=d.getSeconds();
-
-  document.getElementById("time").innerText =
-    String(h).padStart(2,'0')+":"+String(m).padStart(2,'0');
-
-  document.getElementById("date").innerText = d.toDateString();
-
-  document.getElementById("h").style.transform =
-    "rotate("+(h*30+m/2)+"deg)";
-  document.getElementById("m").style.transform =
-    "rotate("+(m*6)+"deg)";
-  document.getElementById("s").style.transform =
-    "rotate("+(s*6)+"deg)";
-}
-
-setInterval(update,1000);
-update();
-</script>
 
 </body>
 </html>
