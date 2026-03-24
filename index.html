@@ -2,8 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bear UI</title>
+<title>Engy</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
@@ -11,52 +10,98 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #f4d6c8;
+    background: linear-gradient(#f8e1d8, #f4d6c8);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* الكارد */
 .card {
     width: 340px;
-    padding: 20px;
+    padding: 25px;
     border-radius: 30px;
     background: #f6d8cb;
-    box-shadow: 15px 15px 30px #e0bfb1,
-                -15px -15px 30px #fff2ea;
+    box-shadow: 12px 12px 25px #e0bfb1,
+                -12px -12px 25px #fff2ea;
     text-align: center;
 }
 
-/* صورة الدب */
-.bear-img {
+.bear {
     width: 200px;
-    margin-top: -40px;
-    transition: 0.3s;
+    height: 160px;
+    background: #7b5e57;
+    border-radius: 100px 100px 80px 80px;
+    margin: auto;
+    position: relative;
+    box-shadow: inset 6px 6px 12px #6a4f49,
+                inset -6px -6px 12px #8c6d65;
 }
 
-/* حركة */
-.bear-img:hover {
-    transform: scale(1.05) rotate(2deg);
+.ear {
+    width: 50px;
+    height: 50px;
+    background: #7b5e57;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+}
+.ear.left { left: 20px; }
+.ear.right { right: 20px; }
+
+.eye {
+    width: 12px;
+    height: 12px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    animation: blink 4s infinite;
+}
+.eye.left { left: 60px; }
+.eye.right { right: 60px; }
+
+@keyframes blink {
+    0%, 90%, 100% { height: 12px; }
+    95% { height: 2px; }
 }
 
-/* الوقت */
+.cheek {
+    width: 30px;
+    height: 30px;
+    background: #d88c8c;
+    border-radius: 50%;
+    position: absolute;
+    top: 90px;
+}
+.cheek.left { left: 30px; }
+.cheek.right { right: 30px; }
+
+.nose {
+    width: 35px;
+    height: 35px;
+    background: #e7c1b5;
+    border-radius: 50%;
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .time {
-    font-size: 45px;
+    font-size: 42px;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 20px;
     color: #6b4c45;
 }
 
-/* التاريخ */
 .date {
+    margin-top: 5px;
     color: #8c6d65;
 }
 
-/* الأزرار */
 .buttons {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
     justify-content: space-between;
 }
@@ -66,28 +111,24 @@ body {
     height: 55px;
     border-radius: 18px;
     background: #7b5e57;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 20px;
     box-shadow: 6px 6px 12px #6a4f49,
                 -6px -6px 12px #8c6d65;
-    cursor: pointer;
     transition: 0.2s;
 }
 
-.btn:active {
-    transform: scale(0.9);
+.btn:hover {
+    transform: scale(1.1);
 }
 
-/* footer */
 .footer {
-    margin-top: 15px;
+    margin-top: 20px;
     padding: 10px;
     border-radius: 15px;
     background: #7b5e57;
     color: white;
+    font-size: 14px;
+    box-shadow: inset 3px 3px 6px #6a4f49,
+                inset -3px -3px 6px #8c6d65;
 }
 </style>
 </head>
@@ -96,24 +137,36 @@ body {
 
 <div class="card">
 
-    <img src="bear.png" class="bear-img" id="bear">
+    <div class="bear">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
 
-    <div class="time" id="time"></div>
-    <div class="date" id="date"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
 
-    <div class="buttons">
-        <div class="btn">🏠</div>
-        <div class="btn">📷</div>
-        <div class="btn">🔒</div>
-        <div class="btn">⚙️</div>
+        <div class="cheek left"></div>
+        <div class="cheek right"></div>
+
+        <div class="nose"></div>
     </div>
 
-    <div class="footer">Yummy 🍰</div>
+    <div class="time" id="time">00:00</div>
+    <div class="date" id="date">---</div>
+
+    <div class="buttons">
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+    </div>
+
+    <div class="footer">
+        Yummy 🍰
+    </div>
 
 </div>
 
 <script>
-// الساعة
 function updateTime() {
     const now = new Date();
 
@@ -132,17 +185,6 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
-
-
-// حركة عند الضغط
-const bear = document.getElementById("bear");
-
-bear.addEventListener("click", () => {
-    bear.style.transform = "scale(1.1) rotate(-5deg)";
-    setTimeout(() => {
-        bear.style.transform = "";
-    }, 300);
-});
 </script>
 
 </body>
