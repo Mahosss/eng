@@ -10,63 +10,66 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: Arial;
+  font-family: "Cairo", sans-serif;
 }
 
 body{
-  background:#e8c7b7;
+  background:#e7c6b6;
   display:flex;
   justify-content:center;
   align-items:center;
   height:100vh;
 }
 
-/* container */
+/* App */
 .app{
-  width:350px;
-  background:#e8c7b7;
-  padding:20px;
+  width:360px;
+  padding:15px;
+}
+
+/* Bear */
+.bear-box{
+  position:relative;
+  text-align:center;
+}
+
+.bear{
+  width:100%;
   border-radius:25px;
 }
 
-/* bear */
-.bear{
-  width:100%;
-  border-radius:20px;
-}
-
-/* cream */
+/* Cream Layer */
 .cream{
   background:#fff;
-  height:60px;
-  border-radius:30px 30px 20px 20px;
-  margin-top:-20px;
-  box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
+  height:70px;
+  border-radius:40px 40px 20px 20px;
+  margin-top:-30px;
+  box-shadow:0 -5px 10px rgba(0,0,0,0.08);
 }
 
-/* time */
+/* Time */
 .time{
-  font-size:40px;
-  font-weight:bold;
-  color:#5b3b2f;
   text-align:center;
+  font-size:42px;
+  font-weight:bold;
+  color:#5a3c30;
   margin-top:10px;
 }
 
 .date{
   text-align:center;
-  color:#5b3b2f;
+  color:#5a3c30;
 }
 
-/* clock */
+/* Clock */
 .clock{
-  width:130px;
-  height:130px;
+  width:140px;
+  height:140px;
   border-radius:50%;
   margin:20px auto;
-  background:#f3d7c8;
-  box-shadow: 8px 8px 15px #caa999,
-              -8px -8px 15px #fff;
+  background:#f1d3c4;
+  box-shadow: 10px 10px 20px #c8a799,
+              -10px -10px 20px #fff;
   position:relative;
 }
 
@@ -75,14 +78,28 @@ body{
   bottom:50%;
   left:50%;
   transform-origin:bottom;
-  background:#5b3b2f;
+  background:#5a3c30;
+  border-radius:10px;
 }
 
-.hour{width:5px;height:30px;}
-.min{width:3px;height:40px;}
-.sec{width:2px;height:50px;background:red;}
+.hour{width:6px;height:35px;}
+.min{width:4px;height:50px;}
+.sec{width:2px;height:60px;background:#ff5c5c;}
 
-/* cards */
+/* center dot */
+.clock::after{
+  content:'';
+  width:10px;
+  height:10px;
+  background:#5a3c30;
+  border-radius:50%;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* Cards */
 .cards{
   display:flex;
   justify-content:space-between;
@@ -90,16 +107,22 @@ body{
 }
 
 .card{
-  width:60px;
-  height:60px;
-  border-radius:15px;
-  background:#f3d7c8;
+  width:65px;
+  height:65px;
+  border-radius:18px;
+  background:#f1d3c4;
   display:flex;
   justify-content:center;
   align-items:center;
   font-size:22px;
-  box-shadow: 5px 5px 10px #caa999,
-              -5px -5px 10px #fff;
+  box-shadow: 6px 6px 12px #c8a799,
+              -6px -6px 12px #fff;
+  transition:.2s;
+}
+
+.card:active{
+  box-shadow: inset 5px 5px 10px #c8a799,
+              inset -5px -5px 10px #fff;
 }
 </style>
 </head>
@@ -108,23 +131,26 @@ body{
 
 <div class="app">
 
-  <!-- bear -->
-  <img src="bear.jpg" class="bear">
+  <!-- Bear -->
+  <div class="bear-box">
+    <img src="bear.jpg" class="bear">
+  </div>
 
+  <!-- Cream -->
   <div class="cream"></div>
 
-  <!-- time -->
+  <!-- Time -->
   <div class="time" id="time">00:00</div>
   <div class="date" id="date"></div>
 
-  <!-- clock -->
+  <!-- Clock -->
   <div class="clock">
     <div class="hand hour" id="h"></div>
     <div class="hand min" id="m"></div>
     <div class="hand sec" id="s"></div>
   </div>
 
-  <!-- icons -->
+  <!-- Cards -->
   <div class="cards">
     <div class="card">🐻</div>
     <div class="card">🍓</div>
