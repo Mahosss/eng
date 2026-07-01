@@ -1,191 +1,92 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>Engy</title>
+    <meta charset="UTF-8">
+    <title>Angy - الخيال الساحر</title>
+    <style>
+        body {
+            background: radial-gradient(circle at center, #1b0229, #050505);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #fff;
+            font-family: 'Tajawal', sans-serif;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+        /* حاوية بروفايل خيالية: شكل غير منتظم (Blob) */
+        .magic-card {
+            width: 350px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; /* شكل عشوائي خيالي */
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 50px rgba(188, 19, 254, 0.3);
+            animation: morphing 8s infinite alternate;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(#f8e1d8, #f4d6c8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+        @keyframes morphing {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            100% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
 
-.card {
-    width: 340px;
-    padding: 25px;
-    border-radius: 30px;
-    background: #f6d8cb;
-    box-shadow: 12px 12px 25px #e0bfb1,
-                -12px -12px 25px #fff2ea;
-    text-align: center;
-}
+        /* دائرة الصورة مع توهج ملون */
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 20px #bc13fe, 0 0 40px #bc13fe;
+            margin-bottom: 20px;
+            transition: 0.5s;
+        }
 
-.bear {
-    width: 200px;
-    height: 160px;
-    background: #7b5e57;
-    border-radius: 100px 100px 80px 80px;
-    margin: auto;
-    position: relative;
-    box-shadow: inset 6px 6px 12px #6a4f49,
-                inset -6px -6px 12px #8c6d65;
-}
+        .avatar:hover { transform: scale(1.1) rotate(10deg); }
 
-.ear {
-    width: 50px;
-    height: 50px;
-    background: #7b5e57;
-    border-radius: 50%;
-    position: absolute;
-    top: -20px;
-}
-.ear.left { left: 20px; }
-.ear.right { right: 20px; }
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px #fff, 0 0 20px #bc13fe;
+            letter-spacing: 2px;
+        }
 
-.eye {
-    width: 12px;
-    height: 12px;
-    background: black;
-    border-radius: 50%;
-    position: absolute;
-    top: 70px;
-    animation: blink 4s infinite;
-}
-.eye.left { left: 60px; }
-.eye.right { right: 60px; }
+        .bio {
+            color: #d1d1d1;
+            font-style: italic;
+            margin-top: 10px;
+        }
 
-@keyframes blink {
-    0%, 90%, 100% { height: 12px; }
-    95% { height: 2px; }
-}
+        /* نجوم متلألئة في الخلفية */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
 
-.cheek {
-    width: 30px;
-    height: 30px;
-    background: #d88c8c;
-    border-radius: 50%;
-    position: absolute;
-    top: 90px;
-}
-.cheek.left { left: 30px; }
-.cheek.right { right: 30px; }
-
-.nose {
-    width: 35px;
-    height: 35px;
-    background: #e7c1b5;
-    border-radius: 50%;
-    position: absolute;
-    top: 85px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.time {
-    font-size: 42px;
-    font-weight: 600;
-    margin-top: 20px;
-    color: #6b4c45;
-}
-
-.date {
-    margin-top: 5px;
-    color: #8c6d65;
-}
-
-.buttons {
-    margin-top: 25px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn {
-    width: 55px;
-    height: 55px;
-    border-radius: 18px;
-    background: #7b5e57;
-    box-shadow: 6px 6px 12px #6a4f49,
-                -6px -6px 12px #8c6d65;
-    transition: 0.2s;
-}
-
-.btn:hover {
-    transform: scale(1.1);
-}
-
-.footer {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 15px;
-    background: #7b5e57;
-    color: white;
-    font-size: 14px;
-    box-shadow: inset 3px 3px 6px #6a4f49,
-                inset -3px -3px 6px #8c6d65;
-}
-</style>
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="card">
+    <!-- نجوم عشوائية -->
+    <div class="star" style="top: 20%; left: 20%;"></div>
+    <div class="star" style="top: 70%; left: 80%;"></div>
+    <div class="star" style="top: 40%; left: 60%;"></div>
 
-    <div class="bear">
-        <div class="ear left"></div>
-        <div class="ear right"></div>
-
-        <div class="eye left"></div>
-        <div class="eye right"></div>
-
-        <div class="cheek left"></div>
-        <div class="cheek right"></div>
-
-        <div class="nose"></div>
+    <div class="magic-card">
+        <img src="https://xatimg.com/image/YqjKEtyM2jfU.jpg" class="avatar" alt="Angy">
+        <h1>Angy</h1>
+        <p class="bio">"روح تعيش بين النجوم، وخيال لا يعرف الحدود.."</p>
     </div>
-
-    <div class="time" id="time">00:00</div>
-    <div class="date" id="date">---</div>
-
-    <div class="buttons">
-        <div class="btn"></div>
-        <div class="btn"></div>
-        <div class="btn"></div>
-        <div class="btn"></div>
-    </div>
-
-    <div class="footer">
-        Yummy 🍰
-    </div>
-
-</div>
-
-<script>
-function updateTime() {
-    const now = new Date();
-
-    let h = now.getHours().toString().padStart(2, '0');
-    let m = now.getMinutes().toString().padStart(2, '0');
-
-    document.getElementById("time").innerText = h + ":" + m;
-
-    const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    let day = days[now.getDay()];
-    let date = now.getDate().toString().padStart(2, '0');
-    let month = (now.getMonth()+1).toString().padStart(2, '0');
-
-    document.getElementById("date").innerText = `${date}/${month} - ${day}`;
-}
-
-setInterval(updateTime, 1000);
-updateTime();
-</script>
 
 </body>
 </html>
