@@ -35,24 +35,49 @@
             100% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
         }
 
+        /* الصورة مع تأثير الحركة عند الماوس */
         .avatar {
             width: 150px; height: 150px; border-radius: 50%;
             border: 4px solid #fff;
             box-shadow: 0 0 20px #bc13fe, 0 0 40px #bc13fe;
             margin-bottom: 20px;
+            transition: all 0.5s ease;
             user-select: none;
             -webkit-user-drag: none;
             pointer-events: none; 
         }
 
-        h1 { font-size: 2.2rem; text-shadow: 0 0 10px #fff, 0 0 20px #bc13fe; margin-bottom: 10px; }
-        .bio { color: #d1d1d1; font-style: italic; margin-bottom: 25px; }
+        /* إعادة تفعيل حركة الماوس */
+        .avatar-wrapper {
+            display: inline-block;
+            transition: 0.5s;
+        }
+        .avatar-wrapper:hover .avatar {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 0 40px #bc13fe, 0 0 70px #bc13fe;
+        }
 
+        h1 { font-size: 2.2rem; text-shadow: 0 0 10px #fff, 0 0 20px #bc13fe; margin-bottom: 10px; }
+        .bio { color: #d1d1d1; font-style: italic; margin-bottom: 20px; }
+
+        /* مشغل الموسيقى المحدث */
         .player-container {
             background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            border-radius: 20px;
+            padding: 20px;
+            border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .song-title {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-shadow: 0 0 5px #bc13fe;
         }
         .play-btn {
             font-size: 1.5rem;
@@ -63,16 +88,18 @@
         .play-btn:hover { transform: scale(1.2); color: #fff; }
     </style>
 </head>
-<body oncontextmenu="return false;"> 
+<body oncontextmenu="return false;">
 
     <div class="magic-card">
+        <div class="avatar-wrapper">
+            <img src="https://xatimg.com/image/YqjKEtyM2jfU.jpg" class="avatar" alt="Angy">
+        </div>
         
-        <img src="https://img.alfrsantv.com/img/f17780577637631.jpeg" class="avatar" alt="Angy">
-        
-        <h1>𝑬𝒏𝒈𝒚</h1>
+        <h1>Angy</h1>
         <p class="bio">"روح تعيش بين النجوم، وخيال لا يعرف الحدود.."</p>
 
         <div class="player-container">
+            <div class="song-title" id="songTitle">ليالي سحرية - إنجي</div>
             <div class="play-btn" id="playBtn">
                 <i class="fas fa-play" id="icon"></i>
             </div>
