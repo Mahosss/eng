@@ -5,87 +5,62 @@
     <title>Engy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            background: radial-gradient(circle at center, #1b0229, #050505);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            color: #fff;
-            font-family: 'Tajawal', sans-serif;
-            margin: 0;
+        /* --- التصميم العام --- */
+        body { 
+            background: radial-gradient(circle at center, #1b0229, #050505); 
+            min-height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden; 
+            color: #fff; 
+            font-family: 'Tajawal', sans-serif; 
+            margin: 0; 
         }
 
-        .magic-card {
-            width: 350px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 0 50px rgba(188, 19, 254, 0.3);
-            animation: morphing 8s infinite alternate;
+        /* --- الكارت الخيالي --- */
+        .magic-card { 
+            width: 350px; 
+            padding: 40px; 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; 
+            text-align: center; 
+            position: relative; 
+            box-shadow: 0 0 50px rgba(188, 19, 254, 0.3); 
+            animation: morphing 8s infinite alternate; 
         }
 
-        @keyframes morphing {
-            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            100% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        @keyframes morphing { 
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } 
+            100% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; } 
         }
 
-        /* الصورة مع تأثير الحركة عند الماوس */
-        .avatar {
-            width: 150px; height: 150px; border-radius: 50%;
-            border: 4px solid #fff;
-            box-shadow: 0 0 20px #bc13fe, 0 0 40px #bc13fe;
-            margin-bottom: 20px;
-            transition: all 0.5s ease;
-            user-select: none;
-            -webkit-user-drag: none;
-            pointer-events: none; 
+        /* --- الصورة وتأثير الماوس --- */
+        .avatar-wrapper { display: inline-block; transition: 0.5s; cursor: pointer; }
+        .avatar { 
+            width: 150px; height: 150px; border-radius: 50%; 
+            border: 4px solid #fff; box-shadow: 0 0 20px #bc13fe, 0 0 40px #bc13fe; 
+            margin-bottom: 20px; transition: all 0.5s ease; 
+            user-select: none; -webkit-user-drag: none; pointer-events: none; 
         }
-
-        /* إعادة تفعيل حركة الماوس */
-        .avatar-wrapper {
-            display: inline-block;
-            transition: 0.5s;
-        }
-        .avatar-wrapper:hover .avatar {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 0 40px #bc13fe, 0 0 70px #bc13fe;
-        }
+        .avatar-wrapper:hover .avatar { transform: scale(1.15) rotate(10deg); box-shadow: 0 0 40px #bc13fe, 0 0 70px #bc13fe; }
 
         h1 { font-size: 2.2rem; text-shadow: 0 0 10px #fff, 0 0 20px #bc13fe; margin-bottom: 10px; }
         .bio { color: #d1d1d1; font-style: italic; margin-bottom: 20px; }
 
-        /* مشغل الموسيقى المحدث */
-        .player-container {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 280px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+        /* --- المشغل المطور --- */
+        .player-container { 
+            background: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 25px; 
+            border: 1px solid rgba(255, 255, 255, 0.1); width: 280px; margin: 0 auto; 
         }
-        .song-title {
-            color: #fff;
-            font-size: 0.95rem;
-            font-weight: bold;
-            text-shadow: 0 0 5px #bc13fe;
-        }
-        .play-btn {
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #bc13fe;
-            transition: 0.3s;
-        }
-        .play-btn:hover { transform: scale(1.2); color: #fff; }
+        .song-title { color: #fff; font-size: 0.9rem; font-weight: bold; margin-bottom: 15px; }
+        .progress-area { height: 5px; width: 100%; background: #444; border-radius: 5px; cursor: pointer; margin-bottom: 15px; }
+        .progress-bar { height: 100%; width: 0%; background: #bc13fe; border-radius: 5px; transition: 0.1s; }
+        .controls { display: flex; justify-content: center; gap: 30px; font-size: 1.3rem; color: #bc13fe; }
+        .btn { cursor: pointer; transition: 0.3s; }
+        .btn:hover { color: #fff; transform: scale(1.2); }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -94,33 +69,73 @@
         <div class="avatar-wrapper">
             <img src="https://xatimg.com/image/YqjKEtyM2jfU.jpg" class="avatar" alt="Angy">
         </div>
-        
         <h1>Angy</h1>
         <p class="bio">"روح تعيش بين النجوم، وخيال لا يعرف الحدود.."</p>
 
         <div class="player-container">
-            <div class="song-title" id="songTitle">ليالي سحرية - إنجي</div>
-            <div class="play-btn" id="playBtn">
-                <i class="fas fa-play" id="icon"></i>
+            <div class="song-title" id="songTitle">تحميل...</div>
+            <div class="progress-area" id="progressArea">
+                <div class="progress-bar" id="progressBar"></div>
             </div>
-            <audio id="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+            <div class="controls">
+                <i class="fas fa-backward btn" onclick="prevSong()"></i>
+                <i class="fas fa-play btn" id="playBtn" onclick="togglePlay()"></i>
+                <i class="fas fa-forward btn" onclick="nextSong()"></i>
+            </div>
+            <audio id="audio"></audio>
         </div>
     </div>
 
     <script>
-        const audio = document.getElementById('audio');
-        const playBtn = document.getElementById('playBtn');
-        const icon = document.getElementById('icon');
+        const songs = [
+            { title: "سحر النجوم", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+            { title: "خيال لا ينتهي", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+            { title: "لحن المجرة", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+            { title: "إيقاع الخيال", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+            { title: "همس إنجي", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" }
+        ];
 
-        playBtn.addEventListener('click', () => {
+        let index = 0;
+        const audio = document.getElementById('audio');
+        const songTitle = document.getElementById('songTitle');
+        const playBtn = document.getElementById('playBtn');
+        const progressBar = document.getElementById('progressBar');
+
+        function loadSong(i) {
+            songTitle.innerText = songs[i].title;
+            audio.src = songs[i].src;
+        }
+
+        function togglePlay() {
             if (audio.paused) {
                 audio.play();
-                icon.className = "fas fa-pause";
+                playBtn.className = "fas fa-pause btn";
             } else {
                 audio.pause();
-                icon.className = "fas fa-play";
+                playBtn.className = "fas fa-play btn";
             }
+        }
+
+        function nextSong() {
+            index = (index + 1) % songs.length;
+            loadSong(index);
+            audio.play();
+            playBtn.className = "fas fa-pause btn";
+        }
+
+        function prevSong() {
+            index = (index - 1 + songs.length) % songs.length;
+            loadSong(index);
+            audio.play();
+            playBtn.className = "fas fa-pause btn";
+        }
+
+        audio.addEventListener("timeupdate", (e) => {
+            const { currentTime, duration } = e.target;
+            progressBar.style.width = `${(currentTime / duration) * 100}%`;
         });
+
+        loadSong(index);
     </script>
 </body>
 </html>
